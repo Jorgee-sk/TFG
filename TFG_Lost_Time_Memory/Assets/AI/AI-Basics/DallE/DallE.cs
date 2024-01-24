@@ -32,8 +32,9 @@ namespace OpenAI
 
             var dallEResponse = await _dallEServiceImpl.GetImage(new DallERequestDTO
             {
+                Model = "dall-e-3",
                 Prompt = inputField.text,
-                Size = SizeImage.SizeImage256X256
+                Size = SizeImage.SizeImage1024X1024
             });
 
             if (!dallEResponse.Data.Equals(null) && dallEResponse.Data.Count > 0)
@@ -51,7 +52,7 @@ namespace OpenAI
                 Texture2D texture = new Texture2D(2, 2);
                 texture.LoadImage(request.downloadHandler.data);
                 Save(texture);
-                var sprite = Sprite.Create(texture, new Rect(0, 0, 256, 256), Vector2.zero, 1f);
+                var sprite = Sprite.Create(texture, new Rect(0, 0, 1024, 1024), Vector2.zero, 1f);
                 resultImage.sprite = sprite;
             }
             else
