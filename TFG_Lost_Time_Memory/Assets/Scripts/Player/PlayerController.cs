@@ -5,7 +5,7 @@ public class PlayerController : MonoBehaviour
     private static float _speed;
     private Rigidbody2D _rigidbody2D;
     private float _lastFire;
-
+    public BgPoolController bgPoolController;
     private static float _defaultSpeed = 5;
     private static int _maxHealth = 10;
     private static int _health = 10;
@@ -76,29 +76,33 @@ public class PlayerController : MonoBehaviour
     void Shoot(float xShoot, float yShoot, float xDirection, float yDirection)
     {
         Transform playerTransform = transform;
-        GameObject bulletToShoot =
-            Instantiate(bullet, playerTransform.position, playerTransform.rotation);
-        bulletToShoot.AddComponent<Rigidbody2D>().gravityScale = 0;
-
-        float auxBulletSpeedX = 1f;
-        float auxBulletSpeedY = 1f;
-        if ((xShoot < 0 && xDirection < 0) || (xDirection > 0 && xShoot > 0))
+        GameObject bulletToShoot = bgPoolController.GetPooledObject();
+        if (bulletToShoot != null)
         {
-            auxBulletSpeedX = 1.4f;
-        }
+            bulletToShoot.transform.position = playerTransform.position;
+            bulletToShoot.transform.rotation = playerTransform.rotation;
+            bulletToShoot.SetActive(true);
 
-        if ((yShoot < 0 && yDirection < 0) || (yDirection > 0 && yShoot > 0))
-        {
-            auxBulletSpeedY = 1.4f;
-        }
+            float auxBulletSpeedX = 1f;
+            float auxBulletSpeedY = 1f;
+            if ((xShoot < 0 && xDirection < 0) || (xDirection > 0 && xShoot > 0))
+            {
+                auxBulletSpeedX = 1.4f;
+            }
 
-        bulletToShoot.GetComponent<Rigidbody2D>().velocity = new Vector2(
-            xShoot < 0
-                ? Mathf.Floor(xShoot) * bulletSpeed * auxBulletSpeedX
-                : Mathf.Ceil(xShoot) * bulletSpeed * auxBulletSpeedX,
-            yShoot < 0
-                ? Mathf.Floor(yShoot) * bulletSpeed * auxBulletSpeedY
-                : Mathf.Ceil(yShoot) * bulletSpeed * auxBulletSpeedY
-        );
+            if ((yShoot < 0 && yDirection < 0) || (yDirection > 0 && yShoot > 0))
+            {
+                auxBulletSpeedY = 1.4f;
+            }
+
+            bulletToShoot.GetComponent<Rigidbody2D>().velocity = new Vector2(
+                xShoot < 0
+                    ? Mathf.Floor(xShoot) * bulletSpeed * auxBulletSpeedX
+                    : Mathf.Ceil(xShoot) * bulletSpeed * auxBulletSpeedX,
+                yShoot < 0
+                    ? Mathf.Floor(yShoot) * bulletSpeed * auxBulletSpeedY
+                    : Mathf.Ceil(yShoot) * bulletSpeed * auxBulletSpeedY
+            );
+        }
     }
 }

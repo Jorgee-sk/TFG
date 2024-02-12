@@ -22,7 +22,7 @@ public class BulletController : MonoBehaviour
     IEnumerator BulletDeathDelay()
     {
         yield return new WaitForSeconds(bulletLifeTime);
-        Destroy(gameObject);
+        gameObject.SetActive(false);
     }
 
     void OnTriggerEnter2D(Collider2D col)
@@ -30,11 +30,11 @@ public class BulletController : MonoBehaviour
         if (col.tag.Equals("Enemy"))
         {
             col.gameObject.GetComponent<EnemyController>().ReceiveDamage(bulletDmg);
-            Destroy(gameObject);
+            gameObject.SetActive(false);
         }
         else if (col.tag.Equals("Wall"))
         {
-            Destroy(gameObject);
+            gameObject.SetActive(false);
         }
     }
 }

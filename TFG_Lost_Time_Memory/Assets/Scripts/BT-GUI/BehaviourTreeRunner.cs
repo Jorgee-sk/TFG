@@ -11,6 +11,8 @@ public class BehaviourTreeRunner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        playerGameObject = GameObject.FindWithTag("Player");
+        target = GameObject.FindWithTag("Player").GetComponent<PlayerController>();
         _btContext = InitBTContext();
         _behaviourTree = _behaviourTree.Clone();
         _behaviourTree.Bind(_btContext);

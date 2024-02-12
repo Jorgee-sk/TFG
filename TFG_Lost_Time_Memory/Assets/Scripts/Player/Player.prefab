@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8222657878937439208}
   - component: {fileID: 8222657878937439215}
   - component: {fileID: 8222657878937439210}
+  - component: {fileID: 1661060787425817939}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -76,7 +77,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 3c77bcb057934744dbcfd6d414ee5f8a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 85fba48fd2eba6b449c12e9a1fdb41b3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -146,9 +147,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd37ccb95f3a5774c9b6b927e1015052, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  defaultSpeed: 6
-  health: 10
+  bgPoolController: {fileID: 1661060787425817939}
   bullet: {fileID: 1746085762888596948, guid: ffe07e1c7c6a0e34fa86addddb70e132, type: 3}
   bulletSpeed: 10
-  fireDelay: 0.5
-  _healthGameObject: {fileID: 0}
+--- !u!114 &1661060787425817939
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8222657878937439212}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bfcdaf684801f9642ba72e5e23ee15d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectToPool: {fileID: 1746085762888596948, guid: ffe07e1c7c6a0e34fa86addddb70e132, type: 3}
+  poolAmount: 4
+  defaultStatus: 0
