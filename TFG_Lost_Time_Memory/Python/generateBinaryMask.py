@@ -61,5 +61,5 @@ mascara_binaria = postProcessingMask(mascara)
 imagen_original = cv2.imread(ruta_imagen_a_segmentar)
 
 # Guardar el resultado en el directiorio de máscaras con el prefijo mask
-resultado_path = 'Masks\\mask'+locals()['image_name']+'.jpg'
+resultado_path = 'Masks\\mask'+locals()['image_name']
 saveResult(imagen_original, mascara_binaria, resultado_path)
