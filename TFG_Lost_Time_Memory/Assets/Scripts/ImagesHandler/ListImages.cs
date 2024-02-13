@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.IO;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,14 +11,27 @@ public class ListImages : MonoBehaviour
     public Image currentImage;
     public Button nextImg;
     public Button prevImg;
+    public Button deleteImg;
     public int currentIdx;
+    public TMP_Text currentImageTxt;
 
-    public List<Sprite> Gallery => gallery;
+    public List<string> fullPathImageNames;
+    //public List<Sprite> Gallery => gallery;
+    //public List<string> TxtImagesNames => imageNames;
 
     void Start()
     {
         string directorio = Application.dataPath + "\\Images\\InGameImages";
+        PrincipalGalleryImageHandler(directorio);
+    }
 
+    /**
+     * Verificamos si existe un directorio o no, en caso de existir
+     * creamos un objeto directory info que nos permite obtener los ficheros por extensión
+     * y una vez obtenidos los recorremos añadiendo los sprites a la lista de la galería principal
+     */
+    private void PrincipalGalleryImageHandler(string directorio)
+    {
         // Verificar si el directorio existe
         if (Directory.Exists(directorio))
         {
@@ -31,12 +45,12 @@ public class ListImages : MonoBehaviour
             foreach (FileInfo archivoPNG in archivosPNG)
             {
                 SetCurrentSpriteFromFile(archivoPNG);
-                Debug.Log("Archivo PNG: " + archivoPNG.FullName);
             }
 
-            if (gallery[0] != null)
+            if (gallery is { Count: > 0 })
             {
                 currentImage.sprite = gallery[0];
+                currentImageTxt.SetText(imageNames[0]);
             }
         }
         else
@@ -44,6 +58,7 @@ public class ListImages : MonoBehaviour
             Debug.LogError("El directorio no existe: " + directorio);
         }
     }
+    
 
     /**
      * Añadir los datos a la galería a partir de un path con el que
@@ -59,6 +74,7 @@ public class ListImages : MonoBehaviour
         Sprite currentSprite = Sprite.Create(loadTexture, new Rect(0, 0, loadTexture.width, loadTexture.height),
             Vector2.zero);
 
+        fullPathImageNames.Add(archivoPNG.FullName);
         imageNames.Add(archivoPNG.Name);
         gallery.Add(currentSprite);
     }
@@ -67,6 +83,7 @@ public class ListImages : MonoBehaviour
     {
         nextImg.onClick.AddListener(() => NextImgButton());
         prevImg.onClick.AddListener(() => PreviousImgButton());
+        deleteImg.onClick.AddListener(() => DeleteCurrentImg());
     }
 
 
@@ -77,7 +94,11 @@ public class ListImages : MonoBehaviour
             currentIdx++;
         }
 
-        currentImage.sprite = gallery[currentIdx];
+        if (gallery is { Count: > 0 })
+        {
+            currentImageTxt.SetText(imageNames[currentIdx]);
+            currentImage.sprite = gallery[currentIdx];
+        }
     }
 
     void PreviousImgButton()
@@ -87,6 +108,39 @@ public class ListImages : MonoBehaviour
             currentIdx--;
         }
 
-        currentImage.sprite = gallery[currentIdx];
+        if (gallery is { Count: > 0 })
+        {
+            currentImageTxt.SetText(imageNames[currentIdx]);
+            currentImage.sprite = gallery[currentIdx];
+        }
+    }
+
+    void DeleteCurrentImg()
+    {
+        if (gallery is { Count: > 0 } && gallery[currentIdx] != null)
+        {
+            imageNames.RemoveAt(currentIdx);
+            gallery.RemoveAt(currentIdx);
+            File.Delete(fullPathImageNames[currentIdx]);
+            fullPathImageNames.RemoveAt(currentIdx);
+
+            if (currentIdx + 1 < gallery.Count)
+            {
+                currentIdx++;
+            }
+
+            if (currentIdx - 1 >= 0)
+            {
+                currentIdx--;
+            }
+
+            currentImageTxt.SetText(imageNames[currentIdx]);
+            currentImage.sprite = gallery[currentIdx];
+        }
+    }
+
+    public string GetCurrentImageName()
+    {
+        return imageNames[currentIdx];
     }
 }

@@ -1,17 +1,35 @@
 using System;
 using System.Diagnostics;
 using UnityEngine;
+using UnityEngine.UI;
 using Debug = UnityEngine.Debug;
 
 public class GenerateMask : MonoBehaviour
 {
-    void Start()
+    public ListImages listImages;
+    public Button generateMaskBtn;
+    private string _currentImageName;
+
+    void OnEnable()
     {
+        generateMaskBtn.onClick.AddListener(() => GenerateBinaryMask());
+        generateMaskBtn.onClick.AddListener(() => ApplyMask());
+    }
+
+    void ApplyMask()
+    {
+        print("Holaaaaa");
+    }
+    
+    void GenerateBinaryMask()
+    {
+        _currentImageName = listImages.GetCurrentImageName();
+        
         try
         {
-            /* Comando que deseas ejecutar en el cmd -> será el nombre del script de python ya que con la /k
+            /* Comando que deseamos ejecutar en el cmd -> será el nombre del script de python ya que con la /k
              accedemos al directorio */
-            string command = "cd python && venvActivation.py generateBinaryMask.py Perromontadoenavionetaestilocartoon_Image.png";
+            string command = "cd python && venvActivation.py generateBinaryMask.py "+_currentImageName;
 
             // Configurar el proceso de inicio
             ProcessStartInfo startInfo = new ProcessStartInfo("cmd.exe", $"/k {command}");

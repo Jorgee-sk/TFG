@@ -29,12 +29,13 @@ def postProcessingMask(mascara):
 
 def saveResult(imagen_original, mascara_binaria, resultado_path):
     # Asegurar que las dimensiones coincidan
-    if imagen_original.shape[:2] != mascara_binaria.shape[1:3]:
-        mascara_binaria = cv2.resize(mascara_binaria[0], (imagen_original.shape[1], imagen_original.shape[0]))
-
+    #if imagen_original.shape[:2] != mascara_binaria.shape[1:3]: -> Este if es codigo antiguo que con la version de unity no funcionaba
+    mascara_binaria = cv2.resize(mascara_binaria[0], (imagen_original.shape[1], imagen_original.shape[0]))
     #Los parámetros son: Alpha , beta y gamma, el parámetro alpha me oculta todos los colores, beta hace que se vea mas o menos el 
     # blanco y gamma no se hahaha
     # Superponer la máscara en la imagen original
+    print(imagen_original.shape) 
+    print(mascara_binaria.shape)
     resultado = cv2.addWeighted(imagen_original, 0, cv2.cvtColor(mascara_binaria * 255, cv2.COLOR_GRAY2BGR), 1, 0.5)
     # Guardar el resultado en el mismo directorio que el script
     cv2.imwrite(resultado_path, resultado)
