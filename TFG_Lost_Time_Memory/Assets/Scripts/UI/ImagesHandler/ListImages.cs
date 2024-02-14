@@ -19,11 +19,24 @@ public class ListImages : MonoBehaviour
     //public List<Sprite> Gallery => gallery;
     //public List<string> TxtImagesNames => imageNames;
 
-    void Start()
+    void OnEnable()
     {
+        gallery = new List<Sprite>();
+        imageNames = new List<string>();
+        currentIdx = 0;
+        
+        nextImg.onClick.RemoveAllListeners();
+        prevImg.onClick.RemoveAllListeners();
+        deleteImg.onClick.RemoveAllListeners();
+        
         string directorio = Application.dataPath + "\\Images\\InGameImages";
         PrincipalGalleryImageHandler(directorio);
+
+        nextImg.onClick.AddListener(() => NextImgButton());
+        prevImg.onClick.AddListener(() => PreviousImgButton());
+        deleteImg.onClick.AddListener(() => DeleteCurrentImg());
     }
+
 
     /**
      * Verificamos si existe un directorio o no, en caso de existir
@@ -78,14 +91,6 @@ public class ListImages : MonoBehaviour
         imageNames.Add(archivoPNG.Name);
         gallery.Add(currentSprite);
     }
-
-    void OnEnable()
-    {
-        nextImg.onClick.AddListener(() => NextImgButton());
-        prevImg.onClick.AddListener(() => PreviousImgButton());
-        deleteImg.onClick.AddListener(() => DeleteCurrentImg());
-    }
-
 
     void NextImgButton()
     {
@@ -142,5 +147,10 @@ public class ListImages : MonoBehaviour
     public string GetCurrentImageName()
     {
         return imageNames[currentIdx];
+    }
+
+    public string GetCurrentMaskImageName()
+    {
+        return "mask"+imageNames[currentIdx];
     }
 }

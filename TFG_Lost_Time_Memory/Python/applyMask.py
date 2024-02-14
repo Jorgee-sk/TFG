@@ -1,9 +1,13 @@
 import cv2
+import sys
 import numpy as np
 
+image_path = 'E:\\4 Carrera\\TFG\\LOST_TIME_MEMORY\\TFG_Lost_Time_Memory\\TFG_Lost_Time_Memory\\Assets\\Images\\InGameImages\\'
+mask_path = 'Masks\\'
+
 # Cargar la imagen original y la máscara binaria
-imagen_original = cv2.imread('testImageV8.jpg')  # Reemplaza con la ruta de tu imagen original
-mascara_binaria = cv2.imread('resultV8.jpg', cv2.IMREAD_GRAYSCALE)  # Reemplaza con la ruta de tu máscara binaria
+imagen_original = cv2.imread(image_path+sys.argv[2])  # Reemplaza con la ruta de tu imagen original
+mascara_binaria = cv2.imread(mask_path+sys.argv[1], cv2.IMREAD_GRAYSCALE)  # Reemplaza con la ruta de tu máscara binaria
 
 # Asegurar que las dimensiones coincidan
 if imagen_original.shape[:2] != mascara_binaria.shape:
@@ -18,4 +22,4 @@ imagen_original_con_alfa = cv2.cvtColor(imagen_original, cv2.COLOR_BGR2BGRA)
 imagen_original_con_alfa[:, :, 3] = mascara_binaria
 
 ## Guardar la imagen resultante
-cv2.imwrite('imagen_sin_fondoV8.png', imagen_original_con_alfa)
+cv2.imwrite(image_path+'result_'+sys.argv[2], imagen_original_con_alfa)
