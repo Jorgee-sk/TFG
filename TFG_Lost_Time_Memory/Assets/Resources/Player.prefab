@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 8222657878937439214}
   - component: {fileID: 8222657878937439209}
   - component: {fileID: 8222657878937439208}
-  - component: {fileID: 8222657878937439215}
   - component: {fileID: 8222657878937439210}
   - component: {fileID: 1661060787425817939}
+  - component: {fileID: 1304183524657891952}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 8222657878937439212}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -109,7 +109,38 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!61 &8222657878937439215
+--- !u!114 &8222657878937439210
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8222657878937439212}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd37ccb95f3a5774c9b6b927e1015052, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bgPoolController: {fileID: 1661060787425817939}
+  customImages: {fileID: 11400000, guid: 9bc612f7417d61441ac42776df5eeecc, type: 2}
+  bullet: {fileID: 1746085762888596948, guid: ffe07e1c7c6a0e34fa86addddb70e132, type: 3}
+  bulletSpeed: 7
+--- !u!114 &1661060787425817939
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8222657878937439212}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bfcdaf684801f9642ba72e5e23ee15d0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectToPool: {fileID: 1746085762888596948, guid: ffe07e1c7c6a0e34fa86addddb70e132, type: 3}
+  poolAmount: 4
+  defaultStatus: 0
+--- !u!61 &1304183524657891952
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -133,35 +164,5 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 2.56, y: 2.56}
+  m_Size: {x: 2.26, y: 2.26}
   m_EdgeRadius: 0
---- !u!114 &8222657878937439210
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8222657878937439212}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bd37ccb95f3a5774c9b6b927e1015052, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bgPoolController: {fileID: 1661060787425817939}
-  bullet: {fileID: 1746085762888596948, guid: ffe07e1c7c6a0e34fa86addddb70e132, type: 3}
-  bulletSpeed: 10
---- !u!114 &1661060787425817939
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8222657878937439212}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bfcdaf684801f9642ba72e5e23ee15d0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  objectToPool: {fileID: 1746085762888596948, guid: ffe07e1c7c6a0e34fa86addddb70e132, type: 3}
-  poolAmount: 4
-  defaultStatus: 0
