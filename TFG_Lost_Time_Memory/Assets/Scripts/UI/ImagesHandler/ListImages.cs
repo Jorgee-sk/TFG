@@ -9,6 +9,8 @@ public class ListImages : MonoBehaviour
     public List<Sprite> gallery;
     public List<string> imageNames;
     public Image currentImage;
+    public GameObject nextImage;
+    public GameObject prevImage;
     public Button nextImg;
     public Button prevImg;
     public Button deleteImg;
@@ -24,7 +26,7 @@ public class ListImages : MonoBehaviour
         gallery = new List<Sprite>();
         imageNames = new List<string>();
         currentIdx = 0;
-        
+
         nextImg.onClick.RemoveAllListeners();
         prevImg.onClick.RemoveAllListeners();
         deleteImg.onClick.RemoveAllListeners();
@@ -35,6 +37,17 @@ public class ListImages : MonoBehaviour
         nextImg.onClick.AddListener(() => NextImgButton());
         prevImg.onClick.AddListener(() => PreviousImgButton());
         deleteImg.onClick.AddListener(() => DeleteCurrentImg());
+
+        if (currentIdx == 0)
+        {
+            prevImage.SetActive(false);
+        }
+        else if (currentIdx == 0 && gallery.Count - 1 == currentIdx)
+        {
+            prevImage.SetActive(false);
+            nextImage.SetActive(false);
+        }
+
     }
 
 
@@ -104,6 +117,8 @@ public class ListImages : MonoBehaviour
             currentImageTxt.SetText(imageNames[currentIdx]);
             currentImage.sprite = gallery[currentIdx];
         }
+        ShowPreviousImg();
+        ShowNextImg();
     }
 
     void PreviousImgButton()
@@ -117,6 +132,34 @@ public class ListImages : MonoBehaviour
         {
             currentImageTxt.SetText(imageNames[currentIdx]);
             currentImage.sprite = gallery[currentIdx];
+        }
+        ShowPreviousImg();
+        ShowNextImg();
+    }
+
+    void ShowPreviousImg()
+    {
+        if (currentIdx == 0)
+        {
+            prevImage.SetActive(false);
+        }
+        else
+        {
+            prevImage.SetActive(true);
+            prevImage.GetComponent<Image>().sprite = gallery[currentIdx - 1];
+        }
+    }
+
+    void ShowNextImg()
+    {
+        if (currentIdx == gallery.Count - 1)
+        {
+            nextImage.SetActive(false);
+        }
+        else
+        {
+            nextImage.SetActive(true);
+            nextImage.GetComponent<Image>().sprite = gallery[currentIdx + 1];
         }
     }
 
