@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ae00f1e58e7f4d4bb0ae96e92072562, type: 3}
   m_Name: CustomImagesNames
   m_EditorClassIdentifier: 
-  playerImageToSet: 
+  playerImageToSet: result_Perromontadoenavionetaestilocartoon_Image.png
   bulletImageToSet: 
   enemyImageToSet: 
   bgImageToSet: 

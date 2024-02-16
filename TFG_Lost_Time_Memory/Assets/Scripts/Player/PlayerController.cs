@@ -192,6 +192,11 @@ public class PlayerController : MonoBehaviour
 
                             transform.localScale = new Vector3(scaleX, scaleY, 1);
                         }
+                        else
+                        {
+                            float scale = 0.5f;
+                            transform.localScale = new Vector3(scale, scale, 1);
+                        }
                         break;
                     }
                 }
