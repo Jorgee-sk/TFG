@@ -16,10 +16,9 @@ public class ListImages : MonoBehaviour
     public Button deleteImg;
     public int currentIdx;
     public TMP_Text currentImageTxt;
+    public bool pngGallery;
 
     public List<string> fullPathImageNames;
-    //public List<Sprite> Gallery => gallery;
-    //public List<string> TxtImagesNames => imageNames;
 
     void OnEnable()
     {
@@ -30,22 +29,24 @@ public class ListImages : MonoBehaviour
         nextImg.onClick.RemoveAllListeners();
         prevImg.onClick.RemoveAllListeners();
         deleteImg.onClick.RemoveAllListeners();
-        
-        string directorio = Application.dataPath + "\\Images\\InGameImages";
+
+        string directorio = !pngGallery
+            ? Application.dataPath + "\\Images\\InGameImages"
+            : Application.dataPath + "\\Images\\ResultImages";
         PrincipalGalleryImageHandler(directorio);
 
         nextImg.onClick.AddListener(() => NextImgButton());
         prevImg.onClick.AddListener(() => PreviousImgButton());
         deleteImg.onClick.AddListener(() => DeleteCurrentImg());
 
-        if (currentIdx == 0)
-        {
-            prevImage.SetActive(false);
-        }
-        else if (currentIdx == 0 && gallery.Count - 1 == currentIdx)
+        if (currentIdx == 0 && gallery.Count - 1 <= currentIdx)
         {
             prevImage.SetActive(false);
             nextImage.SetActive(false);
+        }
+        else if (currentIdx == 0)
+        {
+            prevImage.SetActive(false);
         }
 
     }
@@ -73,10 +74,16 @@ public class ListImages : MonoBehaviour
                 SetCurrentSpriteFromFile(archivoPNG);
             }
 
+            //Carga de imágenes iniciales
             if (gallery is { Count: > 0 })
             {
                 currentImage.sprite = gallery[0];
                 currentImageTxt.SetText(imageNames[0]);
+            }
+            
+            if (gallery is { Count: > 1 })
+            {
+                nextImage.GetComponent<Image>().sprite = gallery[1];
             }
         }
         else
@@ -142,9 +149,11 @@ public class ListImages : MonoBehaviour
         if (currentIdx == 0)
         {
             prevImage.SetActive(false);
+            prevImg.enabled = false;
         }
         else
         {
+            prevImg.enabled = true;
             prevImage.SetActive(true);
             prevImage.GetComponent<Image>().sprite = gallery[currentIdx - 1];
         }
@@ -152,12 +161,14 @@ public class ListImages : MonoBehaviour
 
     void ShowNextImg()
     {
-        if (currentIdx == gallery.Count - 1)
+        if (currentIdx >= gallery.Count - 1)
         {
+            nextImg.enabled = false;
             nextImage.SetActive(false);
         }
         else
         {
+            nextImg.enabled = true;
             nextImage.SetActive(true);
             nextImage.GetComponent<Image>().sprite = gallery[currentIdx + 1];
         }
@@ -174,16 +185,13 @@ public class ListImages : MonoBehaviour
 
             if (currentIdx + 1 < gallery.Count)
             {
-                currentIdx++;
+                NextImgButton();
             }
 
             if (currentIdx - 1 >= 0)
             {
-                currentIdx--;
+                PreviousImgButton();
             }
-
-            currentImageTxt.SetText(imageNames[currentIdx]);
-            currentImage.sprite = gallery[currentIdx];
         }
     }
 

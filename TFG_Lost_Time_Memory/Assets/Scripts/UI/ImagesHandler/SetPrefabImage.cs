@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -22,21 +23,34 @@ public class SetPrefabImage : MonoBehaviour
 
     void ChangePlayerPrefabImage()
     {
-        customImages.playerImageToSet = listImages.GetCurrentImageName();
+        if (listImages.GetCurrentImageName() != String.Empty || listImages.GetCurrentImageName() != null)
+        {
+            customImages.playerImageToSet = listImages.GetCurrentImageName();
+        }
     }
 
     void ChangeEnemyPrefabImage()
     {
-        customImages.enemyImageToSet = listImages.GetCurrentImageName();
+        if (listImages.GetCurrentImageName() != String.Empty || listImages.GetCurrentImageName() != null)
+        {
+            customImages.enemyImageToSet = listImages.GetCurrentImageName();
+        }
     }
 
     void ChangeBackgroundPrefabImage()
     {
-        customImages.bgImageToSet = listImages.GetCurrentImageName();
+        if (listImages.GetCurrentImageName() != String.Empty || listImages.GetCurrentImageName() != null)
+        {
+            customImages.bgImageToSet = listImages.GetCurrentImageName();
+        }
+            
     }
 
     void ChangeBulletPrefabImage()
     {
-        customImages.bulletImageToSet = listImages.GetCurrentImageName();
+        if (listImages.GetCurrentImageName() != String.Empty || listImages.GetCurrentImageName() != null)
+        {
+            customImages.bulletImageToSet = listImages.GetCurrentImageName();
+        }
     }
 }
