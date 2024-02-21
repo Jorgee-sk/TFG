@@ -9,6 +9,7 @@ public class SetPrefabImage : MonoBehaviour
     public Button setEnemyButton;
     public Button setBackgroundButton;
     public Button setBulletButton;
+    public Button setWallButton;
 
     [SerializeField] public CustomImages customImages;
 
@@ -19,6 +20,7 @@ public class SetPrefabImage : MonoBehaviour
         setEnemyButton.onClick.AddListener(() => ChangeEnemyPrefabImage());
         setBackgroundButton.onClick.AddListener(() => ChangeBackgroundPrefabImage());
         setBulletButton.onClick.AddListener(() => ChangeBulletPrefabImage());
+        setWallButton.onClick.AddListener(() => ChangeTilePrefabImage());
     }
 
     void ChangePlayerPrefabImage()
@@ -43,7 +45,6 @@ public class SetPrefabImage : MonoBehaviour
         {
             customImages.bgImageToSet = listImages.GetCurrentImageName();
         }
-            
     }
 
     void ChangeBulletPrefabImage()
@@ -51,6 +52,14 @@ public class SetPrefabImage : MonoBehaviour
         if (listImages.GetCurrentImageName() != String.Empty || listImages.GetCurrentImageName() != null)
         {
             customImages.bulletImageToSet = listImages.GetCurrentImageName();
+        }
+    }
+
+    void ChangeTilePrefabImage()
+    {
+        if (listImages.GetCurrentImageName() != String.Empty || listImages.GetCurrentImageName() != null)
+        {
+            customImages.tiledImageToSet = listImages.GetCurrentImageName();
         }
     }
 }

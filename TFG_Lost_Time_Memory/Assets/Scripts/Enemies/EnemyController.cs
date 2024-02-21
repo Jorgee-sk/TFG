@@ -15,7 +15,7 @@ public class EnemyController : MonoBehaviour
     [SerializeField] private float rotationSpeed;
     [SerializeField] private float rotationModifier;
     [SerializeField] private bool activeRotation;
-    
+
     public CustomImages customImages;
     private Quaternion _lookRotation;
     private Vector3 _direction;
@@ -56,6 +56,7 @@ public class EnemyController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Ahora mismo este codigo no se usa
         if (activeRotation)
         {
             _direction = (target.transform.position - transform.position);
@@ -83,7 +84,7 @@ public class EnemyController : MonoBehaviour
     void CheckPlayerImage()
     {
         string directorioOriginal = Application.dataPath + "\\Images";
-        string directorio = Application.dataPath + "\\Images\\InGameImages";
+        string directorio = Application.dataPath + "\\Images\\ResultImages";
 
         if (customImages.enemyImageToSet == null || customImages.enemyImageToSet.Equals(""))
         {
@@ -156,9 +157,15 @@ public class EnemyController : MonoBehaviour
                             float scale = 0.5f;
                             transform.localScale = new Vector3(scale, scale, 1);
                         }
+
                         Destroy(GetComponent<PolygonCollider2D>());
                         gameObject.AddComponent<PolygonCollider2D>();
                         break;
+                    }
+                    else
+                    {
+                        float scale = 0.5f;
+                        transform.localScale = new Vector3(scale, scale, 1);
                     }
                 }
             }

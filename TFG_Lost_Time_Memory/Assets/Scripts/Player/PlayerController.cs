@@ -8,13 +8,13 @@ public class PlayerController : MonoBehaviour
     private float _lastFire;
     public BgPoolController bgPoolController;
     public CustomImages customImages;
-    private static float _defaultSpeed = 5;
+    private static float _defaultSpeed = 7;
     private static int _maxHealth = 10;
     private static int _health = 10;
-    [SerializeField] private GameObject bullet;
+    //[SerializeField] private GameObject bullet;
     [SerializeField] private float bulletSpeed;
-    private static float _maxFireDelay = 0.5f;
-    private static float _fireDelay = 0.5f;
+    private static float _maxFireDelay = 0.6f;
+    private static float _fireDelay = 0.6f;
     private Vector2 _colliderSize;
 
     public static float Speed

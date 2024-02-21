@@ -7,8 +7,7 @@ public class ItemsController : MonoBehaviour
 {
     [SerializeField] private ItemsEnum typeOfPowerUp;
     [SerializeField] private PowerUpManager powerUpManager;
-    [SerializeField] private SpriteRenderer _spriteRenderer;
-    
+
     void Start()
     {
     }

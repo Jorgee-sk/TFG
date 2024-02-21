@@ -4,6 +4,7 @@ public class GameManager : MonoBehaviour
 {
     private GameObject[] _enemies;
     private GameObject _player;
+    public EnemySpawner enemySpawner;
 
 
     void Start()
@@ -17,10 +18,13 @@ public class GameManager : MonoBehaviour
     {
         if (_player == null)
         {
+            _enemies = GameObject.FindGameObjectsWithTag("Enemy");
             foreach (var enemy in _enemies)
             {
                 Destroy(enemy);
             }
+
+            enemySpawner.enabled = false;
         }
     }
 }

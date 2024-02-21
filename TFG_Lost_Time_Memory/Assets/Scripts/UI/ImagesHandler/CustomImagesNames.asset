@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerImageToSet: result_Perromontadoenavionetaestilocartoon_Image.png
   bulletImageToSet: 
-  enemyImageToSet: result_Galiofromleagueoflegendspixelart_Image.png
+  enemyImageToSet: result_Raton2Dsprite_Image.png
   bgImageToSet: 
+  tiledImageToSet: result_Raton2Dsprite_Image.png

@@ -8,4 +8,5 @@ public class CustomImages : ScriptableObject
     public string bulletImageToSet;
     public string enemyImageToSet;
     public string bgImageToSet;
+    public string tiledImageToSet;
 }

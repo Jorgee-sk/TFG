@@ -15,7 +15,9 @@ public class BgPoolController : MonoBehaviour
         for (int i = 0; i < poolAmount; i++)
         {
             GameObject instantiate = Instantiate(objectToPool);
+
             instantiate.SetActive(defaultStatus);
+
             pooledObjects.Add(instantiate);
         }
     }
@@ -28,6 +30,11 @@ public class BgPoolController : MonoBehaviour
     public GameObject GetElementOfPoolByIndex(int i)
     {
         return pooledObjects[i];
+    }
+
+    public List<GameObject> GetPooledObjects()
+    {
+        return pooledObjects;
     }
     
     public GameObject GetPooledObject()
