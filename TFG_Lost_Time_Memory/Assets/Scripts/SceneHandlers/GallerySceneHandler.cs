@@ -4,23 +4,17 @@ using UnityEngine.UI;
 
 public class GallerySceneHandler : MonoBehaviour
 {
-    public Button goToPNGGallery;
-    public Button goToDallE;
+    public Button goMenuButton;
     
     // Start is called before the first frame update
     void OnEnable()
     {
-        goToPNGGallery.onClick.AddListener(GoToGalleryPNGScene);
-        goToDallE.onClick.AddListener(GoToDallEGeneratorScene);
+        goMenuButton.onClick.AddListener(GoMenuScene);
     }
 
-    void GoToGalleryPNGScene()
+    void GoMenuScene()
     {
-        SceneManager.LoadScene(3);
+        SceneManager.LoadScene(4);
     }
 
-    void GoToDallEGeneratorScene()
-    {
-        SceneManager.LoadScene(1);
-    }
 }

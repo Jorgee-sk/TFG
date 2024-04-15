@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ae00f1e58e7f4d4bb0ae96e92072562, type: 3}
   m_Name: CustomImagesNames
   m_EditorClassIdentifier: 
-  playerImageToSet: result_Perromontadoenavionetaestilocartoon_Image.png
+  playerImageToSet: result_Galiofromleagueoflegendspixelart_Image.png
   bulletImageToSet: 
-  enemyImageToSet: result_Raton2Dsprite_Image.png
+  enemyImageToSet: result_InGameImagesolamarina2Dsprite_Image.png
   bgImageToSet: 
-  tiledImageToSet: result_Raton2Dsprite_Image.png
+  tiledImageToSet: 

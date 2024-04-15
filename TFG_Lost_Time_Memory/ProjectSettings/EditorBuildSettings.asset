@@ -17,4 +17,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/PNGGallery.unity
     guid: 94a90fa144de4d14e9edd64a7337f874
+  - enabled: 1
+    path: Assets/Scenes/GameMenu.unity
+    guid: ef1c0c603da3e034a85ceb8e909f6250
+  - enabled: 1
+    path: Assets/Scenes/GameScene.unity
+    guid: 3552ca31e84adc64fa2368579d209f2e
   m_configObjects: {}

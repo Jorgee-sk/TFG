@@ -70,29 +70,29 @@ public class TiledMapCustom : Tile
                     }
                 }
             }
-            else if (Directory.Exists(directorioInGame))
-            {
-                DirectoryInfo directorioInfo = new DirectoryInfo(directorioInGame);
-
-                FileInfo[] archivosPNG = directorioInfo.GetFiles("*.png");
-
-                foreach (FileInfo archivoPNG in archivosPNG)
-                {
-                    if (archivoPNG.Name.Equals(customImages.enemyImageToSet))
-                    {
-                        byte[] bytes = File.ReadAllBytes(archivoPNG.FullName);
-                        Texture2D loadTexture = new Texture2D(1, 1);
-                        loadTexture.LoadImage(bytes);
-
-                        Sprite currentSprite = Sprite.Create(loadTexture,
-                            new Rect(0, 0, loadTexture.width, loadTexture.height),
-                            new Vector2(0.5f, 0.5f));
-
-                        tileData.sprite = currentSprite;
-                        break;
-                    }
-                }
-            }
+            //else if (Directory.Exists(directorioInGame))
+            //{
+            //    DirectoryInfo directorioInfo = new DirectoryInfo(directorioInGame);
+//
+            //    FileInfo[] archivosPNG = directorioInfo.GetFiles("*.png");
+//
+            //    foreach (FileInfo archivoPNG in archivosPNG)
+            //    {
+            //        if (archivoPNG.Name.Equals(customImages.enemyImageToSet))
+            //        {
+            //            byte[] bytes = File.ReadAllBytes(archivoPNG.FullName);
+            //            Texture2D loadTexture = new Texture2D(1, 1);
+            //            loadTexture.LoadImage(bytes);
+//
+            //            Sprite currentSprite = Sprite.Create(loadTexture,
+            //                new Rect(0, 0, loadTexture.width, loadTexture.height),
+            //                new Vector2(0.5f, 0.5f));
+//
+            //            tileData.sprite = currentSprite;
+            //            break;
+            //        }
+            //    }
+            //}
             else
             {
                 Debug.LogError("El directorio no existe: " + directorio);

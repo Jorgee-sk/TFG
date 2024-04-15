@@ -116,7 +116,7 @@ public class PlayerController : MonoBehaviour
     void CheckPlayerImage()
     {
         string directorioOriginal = Application.dataPath + "\\Images";
-        string directorio = Application.dataPath + "\\Images\\InGameImages";
+        string directorio = Application.dataPath + "\\Images\\ResultImages";
 
         if (customImages.playerImageToSet == null || customImages.playerImageToSet.Equals(""))
         {
