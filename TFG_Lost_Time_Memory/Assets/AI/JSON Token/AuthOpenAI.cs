@@ -58,16 +58,18 @@ public class AuthOpenAI : MonoBehaviour
             File.WriteAllText(_path, _jsonString);
         }
 
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(4);
     }
 
     void Update()
     {
-        if (apiKeyInputField.text.Equals(String.Empty))
+        if (apiKeyInputField.text.Equals(String.Empty) && (PlayerPrefs.GetString("private_api_key") == null ||
+                                                           PlayerPrefs.GetString("private_api_key") == ""))
         {
             button.enabled = false;
         }
-        else
+        else if (!apiKeyInputField.text.Equals(String.Empty) ||
+                 PlayerPrefs.GetString("private_api_key") != null)
         {
             button.enabled = true;
         }

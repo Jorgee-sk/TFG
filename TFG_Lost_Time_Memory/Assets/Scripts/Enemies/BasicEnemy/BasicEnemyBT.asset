@@ -42,6 +42,24 @@ MonoBehaviour:
   children:
   - {fileID: 5744784510392336666}
   - {fileID: -1180625779444854083}
+--- !u!114 &-4712636125707603017
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 52fa333c57389b14bb513028c5b832f1, type: 3}
+  m_Name: HitPlayer
+  m_EditorClassIdentifier: 
+  status: 0
+  started: 0
+  guide: e68f73b3fed63be4788a9e17a658057c
+  position: {x: -230, y: 919}
+  context: {fileID: 0}
+  description: 
 --- !u!114 &-4657580751109915684
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -57,25 +75,7 @@ MonoBehaviour:
   status: 0
   started: 0
   guide: 2336535acd6f4ef46b2e297022d14405
-  position: {x: 527.51874, y: 647}
-  context: {fileID: 0}
-  description: 
---- !u!114 &-3605983109763351718
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 52fa333c57389b14bb513028c5b832f1, type: 3}
-  m_Name: HitPlayer
-  m_EditorClassIdentifier: 
-  status: 0
-  started: 0
-  guide: 3f3ddbdca7795f5419c005a8061b05d6
-  position: {x: -0.0000104904175, y: 836.996}
+  position: {x: 843.65436, y: 672}
   context: {fileID: 0}
   description: 
 --- !u!114 &-1715109245908161913
@@ -114,14 +114,13 @@ MonoBehaviour:
   status: 0
   started: 0
   guide: 0144fadfb75c00f479334232e680c81b
-  position: {x: -272.00003, y: 644.996}
+  position: {x: -292.5, y: 685}
   context: {fileID: 0}
   description: 
   children:
   - {fileID: 7925372345940824885}
   - {fileID: 923211264509420371}
-  - {fileID: 8206656108455444910}
-  - {fileID: -3605983109763351718}
+  - {fileID: -4712636125707603017}
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -146,10 +145,9 @@ MonoBehaviour:
   - {fileID: 7925372345940824885}
   - {fileID: 5744784510392336666}
   - {fileID: 923211264509420371}
-  - {fileID: 8206656108455444910}
-  - {fileID: -3605983109763351718}
   - {fileID: 7921868935169741941}
   - {fileID: -4657580751109915684}
+  - {fileID: -4712636125707603017}
 --- !u!114 &923211264509420371
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -165,7 +163,7 @@ MonoBehaviour:
   status: 0
   started: 0
   guide: 7ef78f1a688145642a729228f4ef28a6
-  position: {x: -466.99997, y: 836.996}
+  position: {x: -450, y: 919}
   context: {fileID: 0}
   description: 
 --- !u!114 &3456180821147575179
@@ -183,7 +181,7 @@ MonoBehaviour:
   status: 0
   started: 0
   guide: e59676e4d3b07a14d8fce82dc1696b0d
-  position: {x: 349.50006, y: 490}
+  position: {x: 703.6543, y: 515}
   context: {fileID: 0}
   description: 
   children:
@@ -222,7 +220,7 @@ MonoBehaviour:
   status: 0
   started: 0
   guide: 8ed3d1556c3f917449ddbc5ec2e7c532
-  position: {x: 194.9998, y: 646.5169}
+  position: {x: 568.65436, y: 670}
   context: {fileID: 0}
   description: 'Revisamos que no haya jugador en el fov '
 --- !u!114 &7925372345940824885
@@ -240,29 +238,9 @@ MonoBehaviour:
   status: 0
   started: 0
   guide: 67a557d4cc76c114680431241ff04468
-  position: {x: -698, y: 836.996}
+  position: {x: -645, y: 919}
   context: {fileID: 0}
   description: "Aqu\xED iria el nodo que comprueba si el player est\xE1 o no en rango"
---- !u!114 &8206656108455444910
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 85fcaa0224af4524aa988a427c8f36e1, type: 3}
-  m_Name: NodeDelay
-  m_EditorClassIdentifier: 
-  status: 0
-  started: 0
-  guide: 250a06425b3970047b19d35cbd0b4aac
-  position: {x: -244, y: 836.996}
-  context: {fileID: 0}
-  description: "Este nodo permite introducir un delay de dos segundos que actuar\xE1
-    como cooldown"
-  duration: 1
 --- !u!114 &8661380270881705728
 MonoBehaviour:
   m_ObjectHideFlags: 0

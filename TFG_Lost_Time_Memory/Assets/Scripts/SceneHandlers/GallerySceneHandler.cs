@@ -14,7 +14,7 @@ public class GallerySceneHandler : MonoBehaviour
 
     void GoMenuScene()
     {
-        SceneManager.LoadScene(4);
+        SceneManager.LoadScene(6);
     }
 
 }

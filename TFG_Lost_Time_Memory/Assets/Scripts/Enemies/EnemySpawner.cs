@@ -1,5 +1,3 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -8,16 +6,20 @@ public class EnemySpawner : MonoBehaviour
     public GameObject father;
     public GameObject enemyPrefab;
     private List<Transform> _childTransforms;
-    private List<GameObject> enemies;
-    public float instantiationTimer;
+    private GameObject[] _gameObjects;
+    private float _deathTimer = 0f; 
+    private float _spawnDelay = 5f;
+    private int _maxHealth = 10;
 
-    void Start()
+    void Awake()
     {
         father = gameObject;
-        _childTransforms = GetAllChildren(father.transform);
+        _childTransforms = GetAllChildrenPositions(father.transform);
+        InstanceFirstEnemies();
+        _gameObjects = GameObject.FindGameObjectsWithTag("Enemy");
     }
 
-    List<Transform> GetAllChildren(Transform t)
+    List<Transform> GetAllChildrenPositions(Transform t)
     {
         List<Transform> transforms = new List<Transform>();
 
@@ -31,19 +33,43 @@ public class EnemySpawner : MonoBehaviour
         return transforms;
     }
 
-    private void FixedUpdate()
+    private void InstanceFirstEnemies()
     {
-        instantiationTimer -= Time.deltaTime;
-        if (instantiationTimer <= 0)
+        foreach (Transform spawnerTransform in _childTransforms)
         {
-            foreach (Transform spawnerTransform in _childTransforms)
+            GameObject instantiate = Instantiate(enemyPrefab);
+            instantiate.SetActive(false);
+            instantiate.transform.position = spawnerTransform.position;
+            instantiate.SetActive(true);
+        }
+    }
+    
+    void FixedUpdate (){
+
+        foreach (GameObject enemy in _gameObjects)
+        {
+            if (enemy != null)
             {
-                GameObject instantiate = Instantiate(enemyPrefab);
-                instantiate.SetActive(false);
-                instantiate.transform.position = spawnerTransform.position;
-                instantiate.SetActive(true);
-                instantiationTimer = 20f;
+                if (!enemy.activeSelf)
+                {
+                    _deathTimer += 1 * Time.deltaTime; //start death timer.
+                }
+
+                if (!enemy.activeSelf && _deathTimer >= _spawnDelay)
+                {
+                    Spawn(enemy);
+                    _deathTimer = 0;
+                }
             }
         }
+        
+    }
+
+    private void Spawn(GameObject enemy)
+    {
+        enemy.SetActive(true);
+        enemy.transform.position = Vector3.zero;
+        _maxHealth += 2;
+        enemy.GetComponent<EnemyController>().Health = _maxHealth;
     }
 }

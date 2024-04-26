@@ -11,23 +11,40 @@ public class SetPrefabImage : MonoBehaviour
     public Button setBulletButton;
     public Button setWallButton;
 
-    [SerializeField] public CustomImages customImages;
-
     // Start is called before the first frame update
     void OnEnable()
     {
-        setPlayerButton.onClick.AddListener(() => ChangePlayerPrefabImage());
-        setEnemyButton.onClick.AddListener(() => ChangeEnemyPrefabImage());
-        setBackgroundButton.onClick.AddListener(() => ChangeBackgroundPrefabImage());
-        setBulletButton.onClick.AddListener(() => ChangeBulletPrefabImage());
-        setWallButton.onClick.AddListener(() => ChangeTilePrefabImage());
+        if (setPlayerButton != null)
+        {
+            setPlayerButton.onClick.AddListener(() => ChangePlayerPrefabImage());
+        }
+
+        if (setEnemyButton != null)
+        {
+            setEnemyButton.onClick.AddListener(() => ChangeEnemyPrefabImage());
+        }
+
+        if (setBackgroundButton != null)
+        {
+            setBackgroundButton.onClick.AddListener(() => ChangeBackgroundPrefabImage());
+        }
+
+        if (setBulletButton != null)
+        {
+            setBulletButton.onClick.AddListener(() => ChangeBulletPrefabImage());
+        }
+
+        if (setWallButton != null)
+        {
+            setWallButton.onClick.AddListener(() => ChangeTilePrefabImage());
+        }
     }
 
     void ChangePlayerPrefabImage()
     {
         if (listImages.GetCurrentImageName() != String.Empty || listImages.GetCurrentImageName() != null)
         {
-            customImages.playerImageToSet = listImages.GetCurrentImageName();
+            PlayerPrefs.SetString("playerImage", listImages.GetCurrentImageName());
         }
     }
 
@@ -35,7 +52,7 @@ public class SetPrefabImage : MonoBehaviour
     {
         if (listImages.GetCurrentImageName() != String.Empty || listImages.GetCurrentImageName() != null)
         {
-            customImages.enemyImageToSet = listImages.GetCurrentImageName();
+            PlayerPrefs.SetString("enemyImage", listImages.GetCurrentImageName());
         }
     }
 
@@ -43,7 +60,7 @@ public class SetPrefabImage : MonoBehaviour
     {
         if (listImages.GetCurrentImageName() != String.Empty || listImages.GetCurrentImageName() != null)
         {
-            customImages.bgImageToSet = listImages.GetCurrentImageName();
+            PlayerPrefs.SetString("bgImage", listImages.GetCurrentImageName());
         }
     }
 
@@ -51,7 +68,7 @@ public class SetPrefabImage : MonoBehaviour
     {
         if (listImages.GetCurrentImageName() != String.Empty || listImages.GetCurrentImageName() != null)
         {
-            customImages.bulletImageToSet = listImages.GetCurrentImageName();
+            PlayerPrefs.SetString("bulletImage", listImages.GetCurrentImageName());
         }
     }
 
@@ -59,7 +76,7 @@ public class SetPrefabImage : MonoBehaviour
     {
         if (listImages.GetCurrentImageName() != String.Empty || listImages.GetCurrentImageName() != null)
         {
-            customImages.tiledImageToSet = listImages.GetCurrentImageName();
+            PlayerPrefs.SetString("tileImage", listImages.GetCurrentImageName());
         }
     }
 }

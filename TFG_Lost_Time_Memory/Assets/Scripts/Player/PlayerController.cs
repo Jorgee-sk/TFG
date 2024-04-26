@@ -7,10 +7,10 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D _rigidbody2D;
     private float _lastFire;
     public BgPoolController bgPoolController;
-    public CustomImages customImages;
-    private static float _defaultSpeed = 7;
+    private static float _defaultSpeed = 7f;
     private static int _maxHealth = 10;
     private static int _health = 10;
+    private static int _score = 0;
     //[SerializeField] private GameObject bullet;
     [SerializeField] private float bulletSpeed;
     private static float _maxFireDelay = 0.6f;
@@ -53,6 +53,12 @@ public class PlayerController : MonoBehaviour
         set => _defaultSpeed = value;
     }
 
+    public static int Score
+    {
+        get => _score;
+        set => _score = value;
+    }
+
     void Start()
     {
         BoxCollider2D boxCollider2D = GetComponent<BoxCollider2D>();
@@ -84,6 +90,7 @@ public class PlayerController : MonoBehaviour
     {
         Transform playerTransform = transform;
         GameObject bulletToShoot = bgPoolController.GetPooledObject();
+        AudioSource.PlayClipAtPoint(bulletToShoot.GetComponent<AudioSource>().clip, transform.position);
         if (bulletToShoot != null)
         {
             bulletToShoot.transform.position = playerTransform.position;
@@ -118,7 +125,7 @@ public class PlayerController : MonoBehaviour
         string directorioOriginal = Application.dataPath + "\\Images";
         string directorio = Application.dataPath + "\\Images\\ResultImages";
 
-        if (customImages.playerImageToSet == null || customImages.playerImageToSet.Equals(""))
+        if (PlayerPrefs.GetString("playerImage") == null || PlayerPrefs.GetString("playerImage").Equals(""))
         {
             if (Directory.Exists(directorioOriginal))
             {
@@ -164,7 +171,7 @@ public class PlayerController : MonoBehaviour
 
                 foreach (FileInfo archivoPNG in archivosPNG)
                 {
-                    if (archivoPNG.Name.Equals(customImages.playerImageToSet))
+                    if (archivoPNG.Name.Equals(PlayerPrefs.GetString("playerImage")))
                     {
                         byte[] bytes = File.ReadAllBytes(archivoPNG.FullName);
                         Texture2D loadTexture = new Texture2D(1, 1);
@@ -206,5 +213,10 @@ public class PlayerController : MonoBehaviour
                 Debug.LogError("El directorio no existe: " + directorio);
             }
         }
+    }
+
+    public int GetScore()
+    {
+        return _score;
     }
 }

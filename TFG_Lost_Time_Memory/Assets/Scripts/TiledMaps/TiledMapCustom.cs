@@ -5,8 +5,6 @@ using UnityEngine.Tilemaps;
 [CreateAssetMenu]
 public class TiledMapCustom : Tile
 {
-    public CustomImages customImages;
-
     public override void GetTileData(Vector3Int position, ITilemap tilemap, ref TileData tileData)
     {
         base.GetTileData(position, tilemap, ref tileData);
@@ -14,7 +12,7 @@ public class TiledMapCustom : Tile
         string directorio = Application.dataPath + "\\Images\\ResultImages";
         string directorioInGame = Application.dataPath + "\\Images\\InGameImages";
 
-        if (customImages.enemyImageToSet == null || customImages.enemyImageToSet.Equals(""))
+        if (PlayerPrefs.GetString("tileImage") == null || PlayerPrefs.GetString("tileImage").Equals(""))
         {
             if (Directory.Exists(directorioOriginal))
             {
@@ -55,7 +53,7 @@ public class TiledMapCustom : Tile
 
                 foreach (FileInfo archivoPNG in archivosPNG)
                 {
-                    if (archivoPNG.Name.Equals(customImages.enemyImageToSet))
+                    if (archivoPNG.Name.Equals(PlayerPrefs.GetString("tileImage")))
                     {
                         byte[] bytes = File.ReadAllBytes(archivoPNG.FullName);
                         Texture2D loadTexture = new Texture2D(1, 1);

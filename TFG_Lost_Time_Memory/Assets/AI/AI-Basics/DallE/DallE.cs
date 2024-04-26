@@ -1,6 +1,7 @@
 using System.IO;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.UI;
@@ -9,7 +10,7 @@ namespace OpenAI
 {
     public class DallE : MonoBehaviour
     {
-        [SerializeField] private InputField inputField;
+        [SerializeField] private TMP_InputField inputField;
         [SerializeField] private Image resultImage;
         [SerializeField] private Button button;
         [SerializeField] private GameObject loadGameObject;

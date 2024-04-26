@@ -11,6 +11,10 @@ public class ListImages : MonoBehaviour
     public Image currentImage;
     public GameObject nextImage;
     public GameObject prevImage;
+
+    public GameObject imgBgNext;
+    public GameObject imgBgPrev;
+    
     public Button nextImg;
     public Button prevImg;
     public Button deleteImg;
@@ -148,11 +152,13 @@ public class ListImages : MonoBehaviour
     {
         if (currentIdx == 0)
         {
+            imgBgPrev.SetActive(false);
             prevImage.SetActive(false);
             prevImg.enabled = false;
         }
         else
         {
+            imgBgPrev.SetActive(true);
             prevImg.enabled = true;
             prevImage.SetActive(true);
             prevImage.GetComponent<Image>().sprite = gallery[currentIdx - 1];
@@ -163,11 +169,13 @@ public class ListImages : MonoBehaviour
     {
         if (currentIdx >= gallery.Count - 1)
         {
+            imgBgNext.SetActive(false);
             nextImg.enabled = false;
             nextImage.SetActive(false);
         }
         else
         {
+            imgBgNext.SetActive(true);
             nextImg.enabled = true;
             nextImage.SetActive(true);
             nextImage.GetComponent<Image>().sprite = gallery[currentIdx + 1];

@@ -26,5 +26,9 @@ public class GameManager : MonoBehaviour
 
             enemySpawner.enabled = false;
         }
+        else
+        {
+            PlayerPrefs.SetInt("HighScore", _player.GetComponent<PlayerController>().GetScore());
+        }
     }
 }

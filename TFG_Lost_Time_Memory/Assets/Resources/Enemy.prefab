@@ -101,14 +101,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 10
-  detectionRange: 10
+  detectionRange: 100
   attackRange: 1
   attackDamage: 1
   target: {fileID: 8222657878937439214, guid: 1c0c44e070a106949afaee3d4de64ff8, type: 3}
   rotationSpeed: 5
   rotationModifier: 90
   activeRotation: 0
-  customImages: {fileID: 11400000, guid: 9bc612f7417d61441ac42776df5eeecc, type: 2}
 --- !u!195 &570148012
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -119,8 +118,8 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 5
-  m_Acceleration: 8
+  m_Speed: 8
+  m_Acceleration: 10
   avoidancePriority: 50
   m_AngularSpeed: 120
   m_StoppingDistance: 0

@@ -20,7 +20,7 @@ public class BTContext : MonoBehaviour
     public static BTContext CreateFromGameObjectToTarget(GameObject gameObject, GameObject playerGameObject,
         PlayerController targetPlayer, EnemyController targetEnemy)
     {
-        BTContext context = new BTContext();
+        BTContext context = gameObject.AddComponent<BTContext>();
         context.gameObjectContext = gameObject;
         context.playerGameObjectCtx = playerGameObject;
         context.physics = gameObject.GetComponent<Rigidbody>();

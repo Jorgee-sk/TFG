@@ -1,6 +1,4 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 using UnityEngine.AI;
@@ -15,8 +13,7 @@ public class EnemyController : MonoBehaviour
     [SerializeField] private float rotationSpeed;
     [SerializeField] private float rotationModifier;
     [SerializeField] private bool activeRotation;
-
-    public CustomImages customImages;
+    
     private Quaternion _lookRotation;
     private Vector3 _direction;
     private NavMeshAgent _navMeshAgent;
@@ -27,6 +24,12 @@ public class EnemyController : MonoBehaviour
     {
         get => attackDamage;
         set => attackDamage = value;
+    }
+
+    public int Health
+    {
+        get => health;
+        set => health = value;
     }
 
     public int AttackRange
@@ -66,27 +69,12 @@ public class EnemyController : MonoBehaviour
         }
     }
 
-    public void ReceiveDamage(int damage)
-    {
-        health -= damage;
-        if (health == 0)
-        {
-            Death();
-        }
-    }
-
-
-    private void Death()
-    {
-        Destroy(gameObject);
-    }
-
     void CheckPlayerImage()
     {
         string directorioOriginal = Application.dataPath + "\\Images";
         string directorio = Application.dataPath + "\\Images\\ResultImages";
 
-        if (customImages.enemyImageToSet == null || customImages.enemyImageToSet.Equals(""))
+        if (PlayerPrefs.GetString("enemyImage") == null || PlayerPrefs.GetString("enemyImage").Equals(""))
         {
             if (Directory.Exists(directorioOriginal))
             {
@@ -129,7 +117,7 @@ public class EnemyController : MonoBehaviour
 
                 foreach (FileInfo archivoPNG in archivosPNG)
                 {
-                    if (archivoPNG.Name.Equals(customImages.enemyImageToSet))
+                    if (archivoPNG.Name.Equals(PlayerPrefs.GetString("enemyImage")))
                     {
                         byte[] bytes = File.ReadAllBytes(archivoPNG.FullName);
                         Texture2D loadTexture = new Texture2D(1, 1);

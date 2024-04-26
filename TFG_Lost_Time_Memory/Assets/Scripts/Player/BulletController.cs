@@ -6,7 +6,6 @@ public class BulletController : MonoBehaviour
 {
     public float bulletLifeTime;
     public int bulletDmg;
-    public CustomImages customImages;
     private Vector2 _colliderSize;
     
     // Start is called before the first frame update
@@ -14,9 +13,7 @@ public class BulletController : MonoBehaviour
     {
         BoxCollider2D boxCollider2D = GetComponent<BoxCollider2D>();
         _colliderSize = boxCollider2D.size;
-
         CheckPlayerImage();
-
         StartCoroutine(BulletDeathDelay());
     }
 
@@ -35,7 +32,14 @@ public class BulletController : MonoBehaviour
     {
         if (col.tag.Equals("Enemy"))
         {
-            col.gameObject.GetComponent<EnemyController>().ReceiveDamage(bulletDmg);
+            col.gameObject.GetComponent<EnemyController>().Health -= bulletDmg;
+
+            if (col.gameObject.GetComponent<EnemyController>().Health == 0)
+            {
+                PlayerController.Score += 1000;
+                col.gameObject.SetActive(false);
+            }
+
             gameObject.SetActive(false);
         }
         else if (col.tag.Equals("Wall"))
@@ -49,7 +53,8 @@ public class BulletController : MonoBehaviour
         string directorioOriginal = Application.dataPath + "\\Images";
         string directorio = Application.dataPath + "\\Images\\InGameImages";
 
-        if (customImages.bulletImageToSet == null || customImages.bulletImageToSet.Equals(""))
+        if (PlayerPrefs.GetString("bulletImage") == null ||
+            PlayerPrefs.GetString("bulletImage").Equals(""))
         {
             if (Directory.Exists(directorioOriginal))
             {
@@ -95,7 +100,7 @@ public class BulletController : MonoBehaviour
 
                 foreach (FileInfo archivoPNG in archivosPNG)
                 {
-                    if (archivoPNG.Name.Equals(customImages.bulletImageToSet))
+                    if (archivoPNG.Name.Equals(PlayerPrefs.GetString("bulletImage")))
                     {
                         byte[] bytes = File.ReadAllBytes(archivoPNG.FullName);
                         Texture2D loadTexture = new Texture2D(1, 1);

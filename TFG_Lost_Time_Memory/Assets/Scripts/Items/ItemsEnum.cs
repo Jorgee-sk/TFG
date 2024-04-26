@@ -6,5 +6,6 @@ public enum ItemsEnum
 {
     speedPowerUp,
     plusOneHP,
-    shootSpeed
+    shootSpeed,
+    coin
 }
