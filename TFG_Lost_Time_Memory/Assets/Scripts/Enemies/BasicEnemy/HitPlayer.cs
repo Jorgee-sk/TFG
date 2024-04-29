@@ -9,12 +9,15 @@ public class HitPlayer : NodeAction
 
     protected override Status OnUpdate()
     {
-        Collider2D[] colliders = Physics2D.OverlapCircleAll(context.gameObjectContext.transform.position,
-            context.enemyContext.AttackRange, LayerMask.GetMask("Player"));
-
-        if (colliders.Length > 0)
+        if (Time.timeScale != 0f)
         {
-            PlayerController.Health -= context.enemyContext.AttackDamage;
+            Collider2D[] colliders = Physics2D.OverlapCircleAll(context.gameObjectContext.transform.position,
+                context.enemyContext.AttackRange, LayerMask.GetMask("Player"));
+
+            if (colliders.Length > 0)
+            {
+                PlayerController.Health -= context.enemyContext.AttackDamage;
+            }
         }
 
         return Status.Success;

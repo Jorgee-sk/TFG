@@ -3,32 +3,25 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     private GameObject[] _enemies;
+    public GameObject playerPrefab;
     private GameObject _player;
     public EnemySpawner enemySpawner;
+    public GameObject exitMenu;
 
 
-    void Start()
+    void Awake()
     {
-        _enemies ??= GameObject.FindGameObjectsWithTag("Enemy");
-        _player ??= GameObject.FindGameObjectWithTag("Player");
+        _enemies = GameObject.FindGameObjectsWithTag("Enemy");
+        if (_player == null)
+        {
+            Debug.Log("Creating player instance");
+            _player = Instantiate(playerPrefab, Vector3.zero, Quaternion.identity);
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (_player == null)
-        {
-            _enemies = GameObject.FindGameObjectsWithTag("Enemy");
-            foreach (var enemy in _enemies)
-            {
-                Destroy(enemy);
-            }
 
-            enemySpawner.enabled = false;
-        }
-        else
-        {
-            PlayerPrefs.SetInt("HighScore", _player.GetComponent<PlayerController>().GetScore());
-        }
     }
 }

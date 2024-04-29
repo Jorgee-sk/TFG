@@ -122,9 +122,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bgPoolController: {fileID: 1661060787425817939}
-  customImages: {fileID: 11400000, guid: 9bc612f7417d61441ac42776df5eeecc, type: 2}
-  bullet: {fileID: 1746085762888596948, guid: ffe07e1c7c6a0e34fa86addddb70e132, type: 3}
-  bulletSpeed: 7
+  bulletSpeed: 10
 --- !u!114 &1661060787425817939
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -138,7 +136,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectToPool: {fileID: 1746085762888596948, guid: ffe07e1c7c6a0e34fa86addddb70e132, type: 3}
-  poolAmount: 4
+  poolAmount: 6
   defaultStatus: 0
 --- !u!61 &1304183524657891952
 BoxCollider2D:

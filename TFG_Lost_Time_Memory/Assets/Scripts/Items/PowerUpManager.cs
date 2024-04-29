@@ -162,7 +162,7 @@ public class PowerUpManager : MonoBehaviour
         //Si se le añade un parámetro más en float, es el volumen
         AudioSource.PlayClipAtPoint(coinClip, coin.transform.position);
         scoreText.text = "SCORE: " + PlayerController.Score;
-        
+
         coin.SetActive(false);
         yield return new WaitForSeconds(seconds);
         coin.SetActive(true);

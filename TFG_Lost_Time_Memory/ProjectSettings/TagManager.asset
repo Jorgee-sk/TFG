@@ -15,6 +15,7 @@ TagManager:
   - Normal
   - Wall
   - Background
+  - ExitMenu
   layers:
   - Default
   - TransparentFX

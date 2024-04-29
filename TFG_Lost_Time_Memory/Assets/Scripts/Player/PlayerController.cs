@@ -1,4 +1,5 @@
 using System.IO;
+using System.Linq;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -61,12 +62,21 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
+        SetDefaultStats();
         BoxCollider2D boxCollider2D = GetComponent<BoxCollider2D>();
         _colliderSize = boxCollider2D.size;
-        
         CheckPlayerImage();
         _rigidbody2D = GetComponent<Rigidbody2D>();
         _speed = _defaultSpeed;
+    }
+
+    void SetDefaultStats()
+    {
+        _score = 0;
+        _health = 10;
+        _defaultSpeed = 7f;
+        _fireDelay = 0.6f;
+        Time.timeScale = 1f;
     }
 
     void Update()
@@ -213,6 +223,15 @@ public class PlayerController : MonoBehaviour
                 Debug.LogError("El directorio no existe: " + directorio);
             }
         }
+    }
+
+    public static void StopGame()
+    {
+        Time.timeScale = 0f;
+        GameObject g = Resources
+            .FindObjectsOfTypeAll<GameObject>()
+            .FirstOrDefault(g => g.CompareTag("ExitMenu"));
+        g.SetActive(true);
     }
 
     public int GetScore()

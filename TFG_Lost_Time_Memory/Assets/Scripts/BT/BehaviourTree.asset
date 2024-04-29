@@ -16,6 +16,7 @@ MonoBehaviour:
   started: 0
   guide: 7f700c88f7c0b5446a5d5f27f7823892
   position: {x: -156, y: 36}
+  context: {fileID: 0}
   description: 
   children:
   - {fileID: 9016473362929681958}
@@ -36,6 +37,7 @@ MonoBehaviour:
   started: 0
   guide: b7d05180631c5624ab1be196ac6b25f8
   position: {x: 98.99999, y: 175}
+  context: {fileID: 0}
   description: 
   children:
   - {fileID: 2865612433360846919}
@@ -56,6 +58,7 @@ MonoBehaviour:
   started: 0
   guide: 7729c36162cff074bbf60d73f99e24ee
   position: {x: 384.4617, y: 468.00006}
+  context: {fileID: 0}
   description: 
   duration: 3
 --- !u!114 &11400000
@@ -100,6 +103,7 @@ MonoBehaviour:
   started: 0
   guide: e6f10d843cf5e7549a3f88d879e872d8
   position: {x: 95.999954, y: 468.00006}
+  context: {fileID: 0}
   description: 
   log: Three
 --- !u!114 &3215906866782294666
@@ -118,8 +122,10 @@ MonoBehaviour:
   started: 0
   guide: 04cfb622be2735e459b7f31919e133e6
   position: {x: -155.99992, y: -250.21931}
+  context: {fileID: 0}
   description: 
   child: {fileID: 4836976089916278237}
+  player: {fileID: 8222657878937439212, guid: 1c0c44e070a106949afaee3d4de64ff8, type: 3}
 --- !u!114 &4228495729333224886
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -136,6 +142,7 @@ MonoBehaviour:
   started: 0
   guide: 9ac476eade240ea4185632029c222971
   position: {x: -748, y: 467.99982}
+  context: {fileID: 0}
   description: 
   duration: 1
 --- !u!114 &4836976089916278237
@@ -154,9 +161,12 @@ MonoBehaviour:
   started: 0
   guide: b70527984a7610449a3e719969ddc0a0
   position: {x: -156, y: -108}
+  context: {fileID: 0}
   description: "Esta es una descripci\xF3n de prueba para ver lo que se pondr\xEDa
     aqui"
   child: {fileID: -8613082954233500829}
+  restartOnSuccess: 1
+  restartOnFailure: 0
 --- !u!114 &5109954017790166190
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -173,6 +183,7 @@ MonoBehaviour:
   started: 0
   guide: 8313c7d0e5c76f04a884bcc48e5b8615
   position: {x: -1057.8964, y: 468.00006}
+  context: {fileID: 0}
   description: 
   log: One
 --- !u!114 &5527316060220471126
@@ -191,6 +202,7 @@ MonoBehaviour:
   started: 0
   guide: 27c1a8f167546af41817822a737c9811
   position: {x: -467, y: 467.59225}
+  context: {fileID: 0}
   description: 
   log: Two
 --- !u!114 &8441789603467320334
@@ -209,6 +221,7 @@ MonoBehaviour:
   started: 0
   guide: 0eff63ad578e8b4419f4db4364af66b2
   position: {x: -196.24324, y: 467.99997}
+  context: {fileID: 0}
   description: 
   duration: 2
 --- !u!114 &9016473362929681958
@@ -227,6 +240,7 @@ MonoBehaviour:
   started: 0
   guide: 3bf5d8914bee0b8498b47d47e9d08b68
   position: {x: -341.3539, y: 174.99998}
+  context: {fileID: 0}
   description: 
   children:
   - {fileID: 5109954017790166190}

@@ -260,3 +260,4 @@ MonoBehaviour:
   context: {fileID: 0}
   description: 
   child: {fileID: -1715109245908161913}
+  player: {fileID: 8222657878937439212, guid: 1c0c44e070a106949afaee3d4de64ff8, type: 3}
