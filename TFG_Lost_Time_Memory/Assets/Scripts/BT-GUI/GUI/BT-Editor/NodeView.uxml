@@ -1,20 +1,20 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" editor-extension-mode="True">
     <Style src="project://database/Assets/Scripts/BT-GUI/GUI/BT-Editor/NodeViewStyle.uss?fileID=7433441132597879392&amp;guid=9890574315be68544bf011c75ce5c103&amp;type=3#NodeViewStyle" />
     <ui:VisualElement name="node-state" />
-    <ui:VisualElement name="node-border" style="height: 102px; width: 189px; align-items: auto; justify-content: center;">
+    <ui:VisualElement name="node-border" style="height: 102px; width: 189px; align-items: auto; justify-content: center; border-left-width: 3px; border-right-width: 3px; border-top-width: 3px; border-bottom-width: 3px; border-left-color: rgb(255, 255, 255); border-right-color: rgb(255, 255, 255); border-top-color: rgb(255, 255, 255); border-bottom-color: rgb(255, 255, 255);">
         <ui:VisualElement name="contents">
-            <ui:VisualElement name="top" style="height: 221px; width: 190px; justify-content: center;">
+            <ui:VisualElement name="top" style="height: 221px; width: 183px; justify-content: center; -unity-text-align: upper-center;">
                 <ui:VisualElement name="input" />
                 <ui:VisualElement name="divider" class="vertical" />
                 <ui:VisualElement name="title" style="align-items: center;">
-                    <ui:Label name="title-label" text="NodeSequence" class="unity-text-element unity-label" />
+                    <ui:Label name="title-label" text="Node Sequence" class="unity-text-element unity-label" style="-unity-font: url(&apos;project://database/Library/unity%20default%20resources?fileID=10102&amp;guid=0000000000000000e000000000000000&amp;type=0#Arial&apos;); -unity-font-definition: none;" />
                     <ui:VisualElement name="title-button-container">
                         <ui:VisualElement name="collapse-button">
                             <ui:VisualElement name="icon" />
                         </ui:VisualElement>
                     </ui:VisualElement>
                 </ui:VisualElement>
-                <ui:Label text="Description text" display-tooltip-when-elided="true" name="description" style="max-width: 150px;" />
+                <ui:Label text="Description text" display-tooltip-when-elided="true" name="description" style="max-width: 185px; -unity-font: url(&apos;project://database/Library/unity%20default%20resources?fileID=10102&amp;guid=0000000000000000e000000000000000&amp;type=0#Arial&apos;); -unity-font-definition: none; white-space: normal; max-height: none;" />
                 <ui:VisualElement name="divider" class="horizontal" style="min-height: 1px;" />
                 <ui:VisualElement name="output" />
             </ui:VisualElement>

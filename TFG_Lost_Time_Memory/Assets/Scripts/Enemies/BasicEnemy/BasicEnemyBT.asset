@@ -57,7 +57,7 @@ MonoBehaviour:
   status: 0
   started: 0
   guide: e68f73b3fed63be4788a9e17a658057c
-  position: {x: -230, y: 919}
+  position: {x: 119.29, y: 866}
   context: {fileID: 0}
   description: 
 --- !u!114 &-4657580751109915684
@@ -114,7 +114,7 @@ MonoBehaviour:
   status: 0
   started: 0
   guide: 0144fadfb75c00f479334232e680c81b
-  position: {x: -292.5, y: 685}
+  position: {x: -102.88248, y: 645}
   context: {fileID: 0}
   description: 
   children:
@@ -163,7 +163,7 @@ MonoBehaviour:
   status: 0
   started: 0
   guide: 7ef78f1a688145642a729228f4ef28a6
-  position: {x: -450, y: 919}
+  position: {x: -103.000015, y: 866}
   context: {fileID: 0}
   description: 
 --- !u!114 &3456180821147575179
@@ -181,7 +181,7 @@ MonoBehaviour:
   status: 0
   started: 0
   guide: e59676e4d3b07a14d8fce82dc1696b0d
-  position: {x: 703.6543, y: 515}
+  position: {x: 704, y: 514}
   context: {fileID: 0}
   description: 
   children:
@@ -202,7 +202,7 @@ MonoBehaviour:
   status: 0
   started: 0
   guide: 1a211894c77ff924286899d5125291ab
-  position: {x: -645, y: 644.996}
+  position: {x: -467, y: 645}
   context: {fileID: 0}
   description: 
 --- !u!114 &7921868935169741941
@@ -238,7 +238,7 @@ MonoBehaviour:
   status: 0
   started: 0
   guide: 67a557d4cc76c114680431241ff04468
-  position: {x: -645, y: 919}
+  position: {x: -319.51498, y: 866}
   context: {fileID: 0}
   description: "Aqu\xED iria el nodo que comprueba si el player est\xE1 o no en rango"
 --- !u!114 &8661380270881705728
@@ -260,4 +260,3 @@ MonoBehaviour:
   context: {fileID: 0}
   description: 
   child: {fileID: -1715109245908161913}
-  player: {fileID: 8222657878937439212, guid: 1c0c44e070a106949afaee3d4de64ff8, type: 3}
