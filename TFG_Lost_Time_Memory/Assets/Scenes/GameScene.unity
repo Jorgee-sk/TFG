@@ -1068,7 +1068,7 @@ GameObject:
   - component: {fileID: 241753226}
   m_Layer: 0
   m_Name: BigBlockL-1
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1535,7 +1535,7 @@ GameObject:
   - component: {fileID: 332867988}
   m_Layer: 0
   m_Name: MidU-2
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4047,7 +4047,7 @@ GameObject:
   - component: {fileID: 666002102}
   m_Layer: 0
   m_Name: BigBlockL-3
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4176,7 +4176,7 @@ GameObject:
   - component: {fileID: 686827976}
   m_Layer: 0
   m_Name: BottomWall
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4563,7 +4563,7 @@ GameObject:
   - component: {fileID: 713747129}
   m_Layer: 0
   m_Name: BigBlockR-2
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5036,7 +5036,7 @@ GameObject:
   - component: {fileID: 726388883}
   m_Layer: 0
   m_Name: TopRectangle
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5497,7 +5497,7 @@ GameObject:
   - component: {fileID: 768396155}
   m_Layer: 0
   m_Name: MidU
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5788,7 +5788,7 @@ GameObject:
   - component: {fileID: 788533220}
   m_Layer: 0
   m_Name: MidU-3
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7117,7 +7117,7 @@ GameObject:
   - component: {fileID: 882753747}
   m_Layer: 0
   m_Name: SideLeftWall
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7386,7 +7386,7 @@ GameObject:
   - component: {fileID: 914658610}
   m_Layer: 0
   m_Name: SideRightWall
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8121,7 +8121,7 @@ GameObject:
   - component: {fileID: 1014428742}
   m_Layer: 0
   m_Name: LeftSquare-2
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8359,7 +8359,7 @@ GameObject:
   - component: {fileID: 1018688206}
   m_Layer: 0
   m_Name: LeftSquare-1
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9351,7 +9351,7 @@ GameObject:
   - component: {fileID: 1135347695}
   m_Layer: 0
   m_Name: RightSquare-1
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10855,7 +10855,7 @@ GameObject:
   - component: {fileID: 1442816427}
   m_Layer: 0
   m_Name: LeftHorizontalWall
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11367,7 +11367,7 @@ GameObject:
   - component: {fileID: 1496487294}
   m_Layer: 0
   m_Name: RightRectangleTop
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11850,7 +11850,7 @@ GameObject:
   - component: {fileID: 1511810991}
   m_Layer: 0
   m_Name: BigBlockL-2
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11979,7 +11979,7 @@ GameObject:
   - component: {fileID: 1515776997}
   m_Layer: 0
   m_Name: BigBlockR
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12435,7 +12435,7 @@ GameObject:
   - component: {fileID: 1583929017}
   m_Layer: 0
   m_Name: TopWall
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13108,7 +13108,7 @@ GameObject:
   - component: {fileID: 1683965827}
   m_Layer: 0
   m_Name: BigBlockR-3
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13275,7 +13275,7 @@ GameObject:
   - component: {fileID: 1700060386}
   m_Layer: 0
   m_Name: RightSquare-2
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14553,7 +14553,7 @@ GameObject:
   - component: {fileID: 1873841886}
   m_Layer: 0
   m_Name: RightHorizontalWall
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -15233,7 +15233,7 @@ GameObject:
   - component: {fileID: 1967158178}
   m_Layer: 0
   m_Name: LefttRectangleTop
-  m_TagString: Untagged
+  m_TagString: Wall
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
