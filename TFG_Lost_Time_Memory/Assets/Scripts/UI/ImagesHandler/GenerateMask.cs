@@ -1,6 +1,7 @@
 using System;
 using System.Diagnostics;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using Debug = UnityEngine.Debug;
 
@@ -20,7 +21,7 @@ public class GenerateMask : MonoBehaviour
     void GenerateBinaryMask()
     {
         _currentImageName = listImages.GetCurrentImageName();
-
+        
         try
         {
             /* Comando que deseamos ejecutar en el cmd -> será el nombre del script de python ya que con la /k
@@ -112,8 +113,12 @@ public class GenerateMask : MonoBehaviour
             Debug.LogError("Error al ejecutar el comando: " + ex.Message);
         }
 
+   
         //Esto hace que se ejecute el onEnabled del list images de nuevo para que se recarguen las imagenes
         listImages.enabled = false;
         listImages.enabled = true;
+        
+        //Desactivamos el botton que habíamos seleccionado por que se quedaba seleccionado 
+        EventSystem.current.SetSelectedGameObject(null);
     }
 }

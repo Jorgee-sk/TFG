@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class SetPrefabImage : MonoBehaviour
@@ -10,6 +11,10 @@ public class SetPrefabImage : MonoBehaviour
     public Button setBackgroundButton;
     public Button setBulletButton;
     public Button setWallButton;
+    public Button setLifePowerUpButton;
+    public Button setShootPowerUpButton;
+    public Button setSpeedPowerUpButton;
+    public Button setScoreItemButton; //La moneda
 
     // Start is called before the first frame update
     void OnEnable()
@@ -38,6 +43,26 @@ public class SetPrefabImage : MonoBehaviour
         {
             setWallButton.onClick.AddListener(() => ChangeTilePrefabImage());
         }
+
+        if (setLifePowerUpButton != null)
+        {
+            setLifePowerUpButton.onClick.AddListener(() => ChangeLifePowerUp());
+        }
+
+        if (setShootPowerUpButton != null)
+        {
+            setShootPowerUpButton.onClick.AddListener(() => ChangeShootPowerUp());
+        }
+
+        if (setSpeedPowerUpButton != null)
+        {
+            setSpeedPowerUpButton.onClick.AddListener(() => ChangeSpeedPowerUp());
+        }
+
+        if (setScoreItemButton != null)
+        {
+            setScoreItemButton.onClick.AddListener(() => ChangeScoreItem());
+        }
     }
 
     void ChangePlayerPrefabImage()
@@ -46,6 +71,8 @@ public class SetPrefabImage : MonoBehaviour
         {
             PlayerPrefs.SetString("playerImage", listImages.GetCurrentImageName());
         }
+
+        EventSystem.current.SetSelectedGameObject(null);
     }
 
     void ChangeEnemyPrefabImage()
@@ -54,6 +81,8 @@ public class SetPrefabImage : MonoBehaviour
         {
             PlayerPrefs.SetString("enemyImage", listImages.GetCurrentImageName());
         }
+
+        EventSystem.current.SetSelectedGameObject(null);
     }
 
     void ChangeBackgroundPrefabImage()
@@ -62,6 +91,8 @@ public class SetPrefabImage : MonoBehaviour
         {
             PlayerPrefs.SetString("bgImage", listImages.GetCurrentImageName());
         }
+
+        EventSystem.current.SetSelectedGameObject(null);
     }
 
     void ChangeBulletPrefabImage()
@@ -70,6 +101,8 @@ public class SetPrefabImage : MonoBehaviour
         {
             PlayerPrefs.SetString("bulletImage", listImages.GetCurrentImageName());
         }
+
+        EventSystem.current.SetSelectedGameObject(null);
     }
 
     void ChangeTilePrefabImage()
@@ -78,5 +111,47 @@ public class SetPrefabImage : MonoBehaviour
         {
             PlayerPrefs.SetString("tileImage", listImages.GetCurrentImageName());
         }
+
+        EventSystem.current.SetSelectedGameObject(null);
+    }
+
+    void ChangeLifePowerUp()
+    {
+        if (listImages.GetCurrentImageName() != String.Empty || listImages.GetCurrentImageName() != null)
+        {
+            PlayerPrefs.SetString("lifePowerUpImage", listImages.GetCurrentImageName());
+        }
+
+        EventSystem.current.SetSelectedGameObject(null);
+    }
+
+    void ChangeShootPowerUp()
+    {
+        if (listImages.GetCurrentImageName() != String.Empty || listImages.GetCurrentImageName() != null)
+        {
+            PlayerPrefs.SetString("shootPowerUpImage", listImages.GetCurrentImageName());
+        }
+
+        EventSystem.current.SetSelectedGameObject(null);
+    }
+
+    void ChangeSpeedPowerUp()
+    {
+        if (listImages.GetCurrentImageName() != String.Empty || listImages.GetCurrentImageName() != null)
+        {
+            PlayerPrefs.SetString("speedPowerUpImage", listImages.GetCurrentImageName());
+        }
+
+        EventSystem.current.SetSelectedGameObject(null);
+    }
+
+    void ChangeScoreItem()
+    {
+        if (listImages.GetCurrentImageName() != String.Empty || listImages.GetCurrentImageName() != null)
+        {
+            PlayerPrefs.SetString("scoreItemImage", listImages.GetCurrentImageName());
+        }
+
+        EventSystem.current.SetSelectedGameObject(null);
     }
 }
