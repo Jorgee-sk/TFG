@@ -1,71 +1,30 @@
+using System.Collections;
+using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 
-public class ItemsController : MonoBehaviour
+public class MapObjectsController : MonoBehaviour
 {
-    [SerializeField] private ItemsEnum typeOfPowerUp;
-    [SerializeField] private PowerUpManager powerUpManager;
-    private string _defaultPicName;
-    private string _powerUpKeyName;
+    [SerializeField] private GameObject background;
+    [SerializeField] private GameObject[] walls;
 
-    private void Start()
+    // Start is called before the first frame update
+    void Start()
     {
-        if (typeOfPowerUp == ItemsEnum.coin) //Carga las imágenes monedas al inicio
+        walls = GameObject.FindGameObjectsWithTag("Wall");
+        foreach (GameObject wall in walls)
         {
-            PowerUpPicNameSetter();
-            CheckPlayerImage(0.15f);
+            CheckPlayerImage(1f, wall, "tileImage", "tiledWall.png");
         }
-    }
-
-    public void SetPowerUpManager(PowerUpManager script)
-    {
-        powerUpManager = script;
-        PowerUpPicNameSetter();  //Carga el resto de powerups
-        CheckPlayerImage(0.2f);
+        CheckPlayerImage(1f, background, "bgImage", "suelo.png");
     }
     
-    private void OnTriggerEnter2D(Collider2D col)
-    {
-        if (col.tag.Equals("Player"))
-        {
-            if (powerUpManager.PowerUpHandler(typeOfPowerUp, gameObject))
-            {
-                gameObject.SetActive(false);
-            }
-        }
-    }
-
-    void PowerUpPicNameSetter()
-    {
-        if (typeOfPowerUp == ItemsEnum.coin)
-        {
-            _defaultPicName = "Monedilla.png";
-            _powerUpKeyName = "scoreItemImage";
-        }
-        else if (typeOfPowerUp == ItemsEnum.shootSpeed)
-        {
-            _defaultPicName = "shootSpeed.png";
-            _powerUpKeyName = "shootPowerUpImage";
-        }
-        else if (typeOfPowerUp == ItemsEnum.speedPowerUp)
-        {
-            _defaultPicName = "boots.png";
-            _powerUpKeyName = "speedPowerUpImage";
-        }
-        else if (typeOfPowerUp == ItemsEnum.plusOneHP)
-        {
-            _defaultPicName = "Heart.png";
-            _powerUpKeyName = "lifePowerUpImage";
-        }
-            
-    }
-    
-     void CheckPlayerImage(float scale)
+    void CheckPlayerImage(float scale, GameObject mapGameObject, string keyName, string defaultPicName)
     {
         string directorioOriginal = Application.dataPath + "\\Images";
         string directorio = Application.dataPath + "\\Images\\ResultImages";
 
-        if (PlayerPrefs.GetString(_powerUpKeyName) == null || PlayerPrefs.GetString(_powerUpKeyName).Equals(""))
+        if (PlayerPrefs.GetString(keyName) == null || PlayerPrefs.GetString(keyName).Equals(""))
         {
             if (Directory.Exists(directorioOriginal))
             {
@@ -75,7 +34,7 @@ public class ItemsController : MonoBehaviour
 
                 foreach (FileInfo archivoPNG in archivosPNG)
                 {
-                    if (archivoPNG.Name.Equals(_defaultPicName))
+                    if (archivoPNG.Name.Equals(defaultPicName))
                     {
                         byte[] bytes = File.ReadAllBytes(archivoPNG.FullName);
                         Texture2D loadTexture = new Texture2D(1, 1);
@@ -85,8 +44,11 @@ public class ItemsController : MonoBehaviour
                             new Rect(0, 0, loadTexture.width, loadTexture.height),
                             new Vector2(0.5f, 0.5f));
 
-                        GetComponent<SpriteRenderer>().sprite = currentSprite;
-                        transform.localScale = new Vector3(scale, scale, 1);
+                        mapGameObject.GetComponent<SpriteRenderer>().drawMode = SpriteDrawMode.Simple;
+                        mapGameObject.GetComponent<SpriteRenderer>().sprite = currentSprite;
+                        mapGameObject.GetComponent<SpriteRenderer>().drawMode = SpriteDrawMode.Tiled;
+
+                        mapGameObject.transform.localScale = new Vector3(scale, scale, 1);
                         break;
                     }
                 }
@@ -106,7 +68,7 @@ public class ItemsController : MonoBehaviour
 
                 foreach (FileInfo archivoPNG in archivosPNG)
                 {
-                    if (archivoPNG.Name.Equals(PlayerPrefs.GetString(_powerUpKeyName)))
+                    if (archivoPNG.Name.Equals(PlayerPrefs.GetString(keyName)))
                     {
                         byte[] bytes = File.ReadAllBytes(archivoPNG.FullName);
                         Texture2D loadTexture = new Texture2D(1, 1);
@@ -116,7 +78,7 @@ public class ItemsController : MonoBehaviour
                             new Rect(0, 0, loadTexture.width, loadTexture.height),
                             new Vector2(0.5f, 0.5f));
 
-                        GetComponent<SpriteRenderer>().sprite = currentSprite;
+                        mapGameObject.GetComponent<SpriteRenderer>().sprite = currentSprite;
 
                         if (loadTexture.width != 256 || loadTexture.height != 256)
                         {
@@ -127,19 +89,18 @@ public class ItemsController : MonoBehaviour
                             float scaleX = 1 / (loadTextureWidth * 2);
                             float scaleY = 1 / (loadTextureHeight * 2);
 
-                            transform.localScale = new Vector3(scaleX, scaleY, 1);
+                            mapGameObject.transform.localScale = new Vector3(scaleX, scaleY, 1);
                         }
                         else
                         {
-                            transform.localScale = new Vector3(scale, scale, 1);
+                            mapGameObject.transform.localScale = new Vector3(scale, scale, 1);
                         }
-                        
+
                         break;
                     }
                     else
                     {
-                        
-                        transform.localScale = new Vector3(scale, scale, 1);
+                        mapGameObject.transform.localScale = new Vector3(scale, scale, 1);
                     }
                 }
             }
