@@ -21,8 +21,9 @@ public class MapObjectsController : MonoBehaviour
     void CheckPlayerImage(float scale, GameObject mapGameObject, string keyName, string defaultPicName)
     {
         string directorioOriginal = Directory.GetCurrentDirectory() + "\\Assets\\Images";
-        string directorio = Directory.GetCurrentDirectory() + "\\Assets\\ResultImages";
-   
+        string directorio = Directory.GetCurrentDirectory() + "\\Assets\\Images\\ResultImages";
+        string directorioInit = Directory.GetCurrentDirectory() + "\\Assets\\Images\\InGameImages";
+
         if (PlayerPrefs.GetString(keyName) == null || PlayerPrefs.GetString(keyName).Equals(""))
         {
             if (Directory.Exists(directorioOriginal))
@@ -38,7 +39,7 @@ public class MapObjectsController : MonoBehaviour
                         byte[] bytes = File.ReadAllBytes(archivoPNG.FullName);
                         Texture2D loadTexture = new Texture2D(1, 1);
                         loadTexture.LoadImage(bytes);
-                        
+
                         //Es importante que el ppu esté a 256 por que es lo que hace que el tile cuadre en estos casos
                         Sprite currentSprite = Sprite.Create(loadTexture,
                             new Rect(0, 0, loadTexture.width, loadTexture.height),
@@ -64,6 +65,23 @@ public class MapObjectsController : MonoBehaviour
 
                 FileInfo[] archivosPNG = directorioInfo.GetFiles("*.png");
 
+                bool existe = false;
+
+                foreach (FileInfo archivoPNG in archivosPNG)
+                {
+                    if (archivoPNG.Name.Equals(PlayerPrefs.GetString(keyName)))
+                    {
+                        existe = true;
+                    }
+                }
+
+                if (!existe && Directory.Exists(directorioInit))
+                {
+                    directorioInfo = new DirectoryInfo(directorioInit);
+                    archivosPNG = directorioInfo.GetFiles("*.png");
+                }
+
+
                 foreach (FileInfo archivoPNG in archivosPNG)
                 {
                     if (archivoPNG.Name.Equals(PlayerPrefs.GetString(keyName)))
@@ -76,23 +94,15 @@ public class MapObjectsController : MonoBehaviour
                             new Rect(0, 0, loadTexture.width, loadTexture.height),
                             new Vector2(0.5f, 0.5f), 256f);
 
+
+                        //Aqui hemos quitado el código del calculo de 1024 por que tratamos la imagen siempre igual
+                        // gracias a convertirlo a 256 ppu
+                        
                         mapGameObject.GetComponent<SpriteRenderer>().sprite = currentSprite;
-
-                        if (loadTexture.width != 256 || loadTexture.height != 256)
-                        {
-                            float textureSizeXY = 256f;
-                            float loadTextureWidth = loadTexture.width / textureSizeXY;
-                            float loadTextureHeight = loadTexture.height / textureSizeXY;
-
-                            float scaleX = 1 / (loadTextureWidth * 2);
-                            float scaleY = 1 / (loadTextureHeight * 2);
-
-                            mapGameObject.transform.localScale = new Vector3(scaleX, scaleY, 1);
-                        }
-                        else
-                        {
-                            mapGameObject.transform.localScale = new Vector3(scale, scale, 1);
-                        }
+                        mapGameObject.GetComponent<BoxCollider2D>().autoTiling = false;
+                        mapGameObject.GetComponent<BoxCollider2D>().size =
+                            mapGameObject.GetComponent<SpriteRenderer>().size;
+                        mapGameObject.transform.localScale = new Vector3(scale, scale, 1);
 
                         break;
                     }
