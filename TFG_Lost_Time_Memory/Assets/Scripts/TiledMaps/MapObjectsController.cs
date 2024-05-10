@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 
@@ -16,14 +14,15 @@ public class MapObjectsController : MonoBehaviour
         {
             CheckPlayerImage(1f, wall, "tileImage", "tiledWall.png");
         }
+
         CheckPlayerImage(1f, background, "bgImage", "suelo.png");
     }
-    
+
     void CheckPlayerImage(float scale, GameObject mapGameObject, string keyName, string defaultPicName)
     {
         string directorioOriginal = Application.dataPath + "\\Images";
         string directorio = Application.dataPath + "\\Images\\ResultImages";
-
+   
         if (PlayerPrefs.GetString(keyName) == null || PlayerPrefs.GetString(keyName).Equals(""))
         {
             if (Directory.Exists(directorioOriginal))
@@ -39,14 +38,13 @@ public class MapObjectsController : MonoBehaviour
                         byte[] bytes = File.ReadAllBytes(archivoPNG.FullName);
                         Texture2D loadTexture = new Texture2D(1, 1);
                         loadTexture.LoadImage(bytes);
-
+                        
+                        //Es importante que el ppu esté a 256 por que es lo que hace que el tile cuadre en estos casos
                         Sprite currentSprite = Sprite.Create(loadTexture,
                             new Rect(0, 0, loadTexture.width, loadTexture.height),
-                            new Vector2(0.5f, 0.5f));
+                            new Vector2(0.5f, 0.5f), 256f);
 
-                        mapGameObject.GetComponent<SpriteRenderer>().drawMode = SpriteDrawMode.Simple;
                         mapGameObject.GetComponent<SpriteRenderer>().sprite = currentSprite;
-                        mapGameObject.GetComponent<SpriteRenderer>().drawMode = SpriteDrawMode.Tiled;
 
                         mapGameObject.transform.localScale = new Vector3(scale, scale, 1);
                         break;
@@ -76,7 +74,7 @@ public class MapObjectsController : MonoBehaviour
 
                         Sprite currentSprite = Sprite.Create(loadTexture,
                             new Rect(0, 0, loadTexture.width, loadTexture.height),
-                            new Vector2(0.5f, 0.5f));
+                            new Vector2(0.5f, 0.5f), 256f);
 
                         mapGameObject.GetComponent<SpriteRenderer>().sprite = currentSprite;
 
