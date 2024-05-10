@@ -1,7 +1,8 @@
 using System;
 using System.Diagnostics;
+using System.IO;
 using UnityEngine;
-using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using Debug = UnityEngine.Debug;
 
@@ -21,6 +22,11 @@ public class GenerateMask : MonoBehaviour
     void GenerateBinaryMask()
     {
         _currentImageName = listImages.GetCurrentImageName();
+        if (File.Exists(Directory.GetCurrentDirectory() + "\\Python\\Masks\\mask" + _currentImageName))
+        {
+            File.Delete(Directory.GetCurrentDirectory() + "\\Python\\Masks\\mask" + _currentImageName);
+        }
+        
         
         try
         {
@@ -113,12 +119,6 @@ public class GenerateMask : MonoBehaviour
             Debug.LogError("Error al ejecutar el comando: " + ex.Message);
         }
 
-   
-        //Esto hace que se ejecute el onEnabled del list images de nuevo para que se recarguen las imagenes
-        listImages.enabled = false;
-        listImages.enabled = true;
-        
-        //Desactivamos el botton que habíamos seleccionado por que se quedaba seleccionado 
-        EventSystem.current.SetSelectedGameObject(null);
+        SceneManager.LoadScene(2);
     }
 }

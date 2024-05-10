@@ -50,8 +50,8 @@ public class BulletController : MonoBehaviour
 
     void CheckPlayerImage()
     {
-        string directorioOriginal = Application.dataPath + "\\Images";
-        string directorio = Application.dataPath + "\\Images\\InGameImages";
+        string directorioOriginal = Directory.GetCurrentDirectory() + "\\Assets\\Images";
+        string directorio = Directory.GetCurrentDirectory() + "\\Assets\\Images\\InGameImages";
 
         if (PlayerPrefs.GetString("bulletImage") == null ||
             PlayerPrefs.GetString("bulletImage").Equals(""))

@@ -78,7 +78,8 @@ namespace OpenAI
         {
             byte[] bytes = texture2D.EncodeToPNG();
             File.WriteAllBytes(
-                Application.dataPath + "/Images/InGameImages/" + Regex.Replace(inputField.text, @"\s", "") + "_Image.png", bytes);
+                Directory.GetCurrentDirectory() + "/Assets/Images/InGameImages/" +
+                Regex.Replace(inputField.text, @"\s", "") + "_Image.png", bytes);
         }
     }
 }

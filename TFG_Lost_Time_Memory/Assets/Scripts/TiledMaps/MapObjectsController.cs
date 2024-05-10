@@ -20,8 +20,8 @@ public class MapObjectsController : MonoBehaviour
 
     void CheckPlayerImage(float scale, GameObject mapGameObject, string keyName, string defaultPicName)
     {
-        string directorioOriginal = Application.dataPath + "\\Images";
-        string directorio = Application.dataPath + "\\Images\\ResultImages";
+        string directorioOriginal = Directory.GetCurrentDirectory() + "\\Assets\\Images";
+        string directorio = Directory.GetCurrentDirectory() + "\\Assets\\ResultImages";
    
         if (PlayerPrefs.GetString(keyName) == null || PlayerPrefs.GetString(keyName).Equals(""))
         {

@@ -132,10 +132,9 @@ public class PlayerController : MonoBehaviour
 
     void CheckPlayerImage()
     {
-        Debug.Log(Directory.GetCurrentDirectory());  //Nos da el directorio actual pero sin la carpeta Assets
-
-        string directorioOriginal = Application.dataPath + "\\Images";
-        string directorio = Application.dataPath + "\\Images\\ResultImages";
+        
+        string directorioOriginal = Directory.GetCurrentDirectory() + "\\Assets\\Images";
+        string directorio = Directory.GetCurrentDirectory() + "\\Assets\\Images\\ResultImages";
 
         if (PlayerPrefs.GetString("playerImage") == null || PlayerPrefs.GetString("playerImage").Equals(""))
         {

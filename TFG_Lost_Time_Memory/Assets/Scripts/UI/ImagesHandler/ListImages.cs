@@ -35,8 +35,8 @@ public class ListImages : MonoBehaviour
         deleteImg.onClick.RemoveAllListeners();
 
         string directorio = !pngGallery
-            ? Application.dataPath + "\\Images\\InGameImages"
-            : Application.dataPath + "\\Images\\ResultImages";
+            ? Directory.GetCurrentDirectory() + "\\Assets\\Images\\InGameImages"
+            : Directory.GetCurrentDirectory() + "\\Assets\\Images\\ResultImages";
         PrincipalGalleryImageHandler(directorio);
 
         nextImg.onClick.AddListener(() => NextImgButton());
@@ -186,9 +186,16 @@ public class ListImages : MonoBehaviour
     {
         if (gallery is { Count: > 0 } && gallery[currentIdx] != null)
         {
+            if (pngGallery)
+            {
+                string currentMaskImageName = GetCurrentMaskImageName().Substring("result_".Length);
+                File.Delete(Directory.GetCurrentDirectory() + "\\Python\\Masks\\" + currentMaskImageName);
+            }
+
             imageNames.RemoveAt(currentIdx);
             gallery.RemoveAt(currentIdx);
             File.Delete(fullPathImageNames[currentIdx]);
+
             fullPathImageNames.RemoveAt(currentIdx);
 
             if (currentIdx + 1 < gallery.Count)
