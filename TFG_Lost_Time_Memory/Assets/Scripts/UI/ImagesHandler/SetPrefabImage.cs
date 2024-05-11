@@ -15,6 +15,8 @@ public class SetPrefabImage : MonoBehaviour
     public Button setShootPowerUpButton;
     public Button setSpeedPowerUpButton;
     public Button setScoreItemButton; //La moneda
+    public Button restoreDefaultBackgroundAndWallsButton;
+    public Button restoreDefaultButton;
 
     // Start is called before the first frame update
     void OnEnable()
@@ -62,6 +64,16 @@ public class SetPrefabImage : MonoBehaviour
         if (setScoreItemButton != null)
         {
             setScoreItemButton.onClick.AddListener(() => ChangeScoreItem());
+        }
+
+        if (restoreDefaultBackgroundAndWallsButton != null)
+        {
+            restoreDefaultBackgroundAndWallsButton.onClick.AddListener(() => RestoreDefaultBgAndWallImages());
+        }
+        
+        if (restoreDefaultButton != null)
+        {
+            restoreDefaultButton.onClick.AddListener(() => RestoreDefault());
         }
     }
 
@@ -153,5 +165,24 @@ public class SetPrefabImage : MonoBehaviour
         }
 
         EventSystem.current.SetSelectedGameObject(null);
+    }
+
+    void RestoreDefaultBgAndWallImages()
+    {
+        PlayerPrefs.SetString("tileImage", null);
+        PlayerPrefs.SetString("bgImage", null);
+        EventSystem.current.SetSelectedGameObject(null);
+    }
+
+    void RestoreDefault()
+    {
+        PlayerPrefs.SetString("playerImage", null);
+        PlayerPrefs.SetString("enemyImage", null);
+        PlayerPrefs.SetString("bulletImage", null);
+        PlayerPrefs.SetString("lifePowerUpImage", null);
+        PlayerPrefs.SetString("shootPowerUpImage", null);
+        PlayerPrefs.SetString("speedPowerUpImage", null);
+        PlayerPrefs.SetString("scoreItemImage", null);
+        RestoreDefaultBgAndWallImages();
     }
 }
