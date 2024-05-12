@@ -15,7 +15,7 @@ public class MapObjectsController : MonoBehaviour
             CheckPlayerImage(1f, wall, "tileImage", "tiledWall.png");
         }
 
-        CheckPlayerImage(1f, background, "bgImage", "suelo.png");
+        CheckPlayerImage(1f, background, "bgImage", "floor.png");
     }
 
     void CheckPlayerImage(float scale, GameObject mapGameObject, string keyName, string defaultPicName)

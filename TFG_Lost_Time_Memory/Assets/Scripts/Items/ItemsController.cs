@@ -39,7 +39,7 @@ public class ItemsController : MonoBehaviour
     {
         if (typeOfPowerUp == ItemsEnum.coin)
         {
-            _defaultPicName = "Monedilla.png";
+            _defaultPicName = "scoreItem.png";
             _powerUpKeyName = "scoreItemImage";
         }
         else if (typeOfPowerUp == ItemsEnum.shootSpeed)
@@ -49,7 +49,7 @@ public class ItemsController : MonoBehaviour
         }
         else if (typeOfPowerUp == ItemsEnum.speedPowerUp)
         {
-            _defaultPicName = "boots.png";
+            _defaultPicName = "speedItem.png";
             _powerUpKeyName = "speedPowerUpImage";
         }
         else if (typeOfPowerUp == ItemsEnum.plusOneHP)

@@ -146,7 +146,7 @@ public class PlayerController : MonoBehaviour
 
                 foreach (FileInfo archivoPNG in archivosPNG)
                 {
-                    if (archivoPNG.Name.Equals("avion.png"))
+                    if (archivoPNG.Name.Equals("player.png"))
                     {
                         byte[] bytes = File.ReadAllBytes(archivoPNG.FullName);
                         Texture2D loadTexture = new Texture2D(1, 1);
