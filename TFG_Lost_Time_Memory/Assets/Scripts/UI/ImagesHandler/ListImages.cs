@@ -79,13 +79,13 @@ public class ListImages : MonoBehaviour
             }
 
             //Carga de imágenes iniciales
-            if (gallery is { Count: > 0 })
+            if (gallery.Count > 0 )
             {
                 currentImage.sprite = gallery[0];
                 currentImageTxt.SetText(imageNames[0]);
             }
             
-            if (gallery is { Count: > 1 })
+            if (gallery.Count > 1 )
             {
                 nextImage.GetComponent<Image>().sprite = gallery[1];
             }
@@ -123,7 +123,7 @@ public class ListImages : MonoBehaviour
             currentIdx++;
         }
 
-        if (gallery is { Count: > 0 })
+        if (gallery.Count > 0 )
         {
             currentImageTxt.SetText(imageNames[currentIdx]);
             currentImage.sprite = gallery[currentIdx];
@@ -139,7 +139,7 @@ public class ListImages : MonoBehaviour
             currentIdx--;
         }
 
-        if (gallery is { Count: > 0 })
+        if (gallery.Count > 0 )
         {
             currentImageTxt.SetText(imageNames[currentIdx]);
             currentImage.sprite = gallery[currentIdx];
@@ -184,7 +184,7 @@ public class ListImages : MonoBehaviour
 
     void DeleteCurrentImg()
     {
-        if (gallery is { Count: > 0 } && gallery[currentIdx] != null)
+        if (gallery.Count > 0 && gallery[currentIdx] != null)
         {
             if (pngGallery)
             {

@@ -3,7 +3,7 @@ using UnityEngine;
 
 public abstract class NodeComposite : Node
 {
-   [HideInInspector] public List<Node> children = new();
+   [HideInInspector] public List<Node> children = new List<Node>();
 
    public override Node Clone()
    {
