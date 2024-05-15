@@ -14,7 +14,6 @@ public class GameManager : MonoBehaviour
         _enemies = GameObject.FindGameObjectsWithTag("Enemy");
         if (_player == null)
         {
-            Debug.Log("Creating player instance");
             _player = Instantiate(playerPrefab, Vector3.zero, Quaternion.identity);
         }
     }

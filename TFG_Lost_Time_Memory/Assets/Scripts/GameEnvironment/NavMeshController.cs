@@ -9,6 +9,7 @@ public class NavMeshController : MonoBehaviour
     void Start()
     {
         _navMeshSurface = GetComponent<NavMeshSurface>();
+        _navMeshSurface.hideEditorLogs = true;
         _navMeshSurface.BuildNavMesh();
     }
 
