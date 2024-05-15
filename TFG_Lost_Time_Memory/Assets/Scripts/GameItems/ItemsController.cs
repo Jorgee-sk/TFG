@@ -62,7 +62,7 @@ public class ItemsController : MonoBehaviour
     
      void CheckPlayerImage(float scale)
     {
-        string directorioOriginal = Directory.GetCurrentDirectory() + "\\Assets\\Images";
+        string directorioOriginal = Directory.GetCurrentDirectory() + "\\Assets\\Images\\BaseImages";
         string directorio = Directory.GetCurrentDirectory() + "\\Assets\\Images\\ResultImages";
 
         if (PlayerPrefs.GetString(_powerUpKeyName) == null || PlayerPrefs.GetString(_powerUpKeyName).Equals(""))

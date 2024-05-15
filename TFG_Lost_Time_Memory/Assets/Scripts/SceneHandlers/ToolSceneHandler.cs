@@ -15,7 +15,10 @@ public class ToolSceneHandler : MonoBehaviour
     {
         goToPNGGallery.onClick.AddListener(GoToGalleryPNGScene);
         goToDallE.onClick.AddListener(GoToDallEGeneratorScene);
-        goToGameScene.onClick.AddListener(GoToGameScene);
+        if (goToGameScene != null)
+        {
+            goToGameScene.onClick.AddListener(GoToGameScene);
+        }
         goToGallery.onClick.AddListener(GoToGallery);
         exitButton.onClick.AddListener(ExitGame);
     }

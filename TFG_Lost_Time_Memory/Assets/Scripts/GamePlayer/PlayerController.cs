@@ -133,7 +133,7 @@ public class PlayerController : MonoBehaviour
     void CheckPlayerImage()
     {
         
-        string directorioOriginal = Directory.GetCurrentDirectory() + "\\Assets\\Images";
+        string directorioOriginal = Directory.GetCurrentDirectory() + "\\Assets\\Images\\BaseImages";
         string directorio = Directory.GetCurrentDirectory() + "\\Assets\\Images\\ResultImages";
 
         if (PlayerPrefs.GetString("playerImage") == null || PlayerPrefs.GetString("playerImage").Equals(""))
