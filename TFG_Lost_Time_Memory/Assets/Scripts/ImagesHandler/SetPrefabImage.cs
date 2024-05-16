@@ -17,6 +17,9 @@ public class SetPrefabImage : MonoBehaviour
     public Button setScoreItemButton; //La moneda
     public Button restoreDefaultBackgroundAndWallsButton;
     public Button restoreDefaultButton;
+    public Button gameMenuBgButton;
+    public Button gameButtonBtn;
+    public Button inGameMenuBgButton;
 
     // Start is called before the first frame update
     void OnEnable()
@@ -74,6 +77,21 @@ public class SetPrefabImage : MonoBehaviour
         if (restoreDefaultButton != null)
         {
             restoreDefaultButton.onClick.AddListener(() => RestoreDefault());
+        }
+
+        if (gameMenuBgButton != null)
+        {
+            gameMenuBgButton.onClick.AddListener(() => ChangeGameMenuBackground());
+        }
+
+        if (gameButtonBtn != null)
+        {
+            gameButtonBtn.onClick.AddListener(() => ChangeGameButtons());
+        }
+
+        if (inGameMenuBgButton != null)
+        {
+            inGameMenuBgButton.onClick.AddListener(() => ChangeInGameMenuBackground());
         }
     }
 
@@ -166,11 +184,44 @@ public class SetPrefabImage : MonoBehaviour
 
         EventSystem.current.SetSelectedGameObject(null);
     }
+    
+    void ChangeGameMenuBackground()
+    {
+        if (listImages.GetCurrentImageName() != String.Empty || listImages.GetCurrentImageName() != null)
+        {
+            PlayerPrefs.SetString("menuBackground", listImages.GetCurrentImageName());
+        }
+
+        EventSystem.current.SetSelectedGameObject(null);
+    }
+    
+    void ChangeGameButtons()
+    {
+        if (listImages.GetCurrentImageName() != String.Empty || listImages.GetCurrentImageName() != null)
+        {
+            PlayerPrefs.SetString("buttonBackground", listImages.GetCurrentImageName());
+        }
+
+        EventSystem.current.SetSelectedGameObject(null);
+    }
+    
+    void ChangeInGameMenuBackground()
+    {
+        if (listImages.GetCurrentImageName() != String.Empty || listImages.GetCurrentImageName() != null)
+        {
+            PlayerPrefs.SetString("gameMenuBackground", listImages.GetCurrentImageName());
+        }
+
+        EventSystem.current.SetSelectedGameObject(null);
+    }
 
     void RestoreDefaultBgAndWallImages()
     {
         PlayerPrefs.SetString("tileImage", null);
         PlayerPrefs.SetString("bgImage", null);
+        PlayerPrefs.SetString("menuBackground", null);
+        PlayerPrefs.SetString("buttonBackground", null);
+        PlayerPrefs.SetString("gameMenuBackground", null);
         EventSystem.current.SetSelectedGameObject(null);
     }
 

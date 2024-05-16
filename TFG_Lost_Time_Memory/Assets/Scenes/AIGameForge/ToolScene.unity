@@ -1305,7 +1305,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   goToPNGGallery: {fileID: 1189395397}
   goToDallE: {fileID: 196008287}
-  goToGameScene: {fileID: 0}
+  goToGameScene: {fileID: 1304011930}
   goToGallery: {fileID: 246973360}
   exitButton: {fileID: 614717420}
 --- !u!1 &1710838123
