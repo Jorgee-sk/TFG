@@ -9,6 +9,9 @@ Intelligence and its adaptation with a U-NET model to the video game or Unity sc
 to the creation of elements that use AI within the video game itself such as enemies, environmental behaviour, with behaviour trees.	
 </p>
 
+<p>
+We will also need an OpenAI account that allows us to make requests to its api and a generated token to be able to log in to the tool.
+</p>
 
 <p>
 To use this tool you need to install Python on your computer and a number of libraries mentioned below:
@@ -21,7 +24,9 @@ To use this tool you need to install Python on your computer and a number of lib
 <li>numpy  1.26.4</li>
 </ul>
 
-<p>In this tool we find an initial menu that provides us with different functionalities.</p>
+<p></p>
+
+<p>In this tool we find an initial menu that provides us with different functionalities:</p>
 
 <ol>
 <li>
@@ -39,5 +44,5 @@ Finally, we find the demo which demonstrates the uses of this tool.
 </ol>
 
 <p>
-Regardless of the tool being used, a visual interface is available in runtime, facilitating the creation of behavior trees for integration into our video game. Users can craft new behaviors utilizing the foundational nodes provided or recycle existing ones.
+Regardless of the tool being used, a visual interface is available in runtime, facilitating the creation of behavior trees for integration into our video game. Users can craft new behaviors using the base nodes provided or recycle existing ones.
 </p>
