@@ -518,6 +518,7 @@ MonoBehaviour:
   resultImage: {fileID: 991489876}
   button: {fileID: 242607204}
   loadGameObject: {fileID: 741032345}
+  sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
 --- !u!4 &546574818
 Transform:
   m_ObjectHideFlags: 0

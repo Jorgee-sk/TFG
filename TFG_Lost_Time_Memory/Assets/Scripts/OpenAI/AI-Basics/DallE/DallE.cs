@@ -14,6 +14,7 @@ namespace OpenAI
         [SerializeField] private Image resultImage;
         [SerializeField] private Button button;
         [SerializeField] private GameObject loadGameObject;
+        [SerializeField] private Sprite sprite;
         
         private DallEServiceImpl _dallEServiceImpl;
 
@@ -29,6 +30,7 @@ namespace OpenAI
          */
         private async void GetAnImageByPrompt()
         {
+            resultImage.sprite = sprite;
             loadGameObject.SetActive(true);
 
             var dallEResponse = await _dallEServiceImpl.GetImage(new DallERequestDTO

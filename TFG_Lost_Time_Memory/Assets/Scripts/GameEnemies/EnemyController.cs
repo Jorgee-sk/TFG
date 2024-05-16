@@ -13,7 +13,9 @@ public class EnemyController : MonoBehaviour
     [SerializeField] private float rotationSpeed;
     [SerializeField] private float rotationModifier;
     [SerializeField] private bool activeRotation;
-    
+    [SerializeField] private bool animatedSprite;
+    [SerializeField] private Sprite[] _sprites;
+
     private Quaternion _lookRotation;
     private Vector3 _direction;
     private NavMeshAgent _navMeshAgent;
@@ -44,11 +46,26 @@ public class EnemyController : MonoBehaviour
         set => detectionRange = value;
     }
 
+    public bool AnimatedSprite
+    {
+        get => animatedSprite;
+        set => animatedSprite = value;
+    }
+
 
     // Start is called before the first frame update
     void Start()
     {
-        CheckPlayerImage();
+        if (!animatedSprite)
+        {
+            CheckPlayerImage();
+            GetComponent<Animator>().enabled = false;
+        }
+        else
+        {
+            LoadBaseAnimatedSpriteImage();
+            GetComponent<Animator>().enabled = true;
+        }
 
         target = GameObject.FindGameObjectWithTag("Player").transform;
         _navMeshAgent = GetComponent<NavMeshAgent>();
@@ -66,6 +83,36 @@ public class EnemyController : MonoBehaviour
             float angle = Mathf.Atan2(_direction.y, _direction.x) * Mathf.Rad2Deg - rotationModifier;
             Quaternion q = Quaternion.AngleAxis(angle, Vector3.forward);
             transform.rotation = Quaternion.Slerp(transform.rotation, q, Time.deltaTime * rotationSpeed);
+        }
+    }
+
+    void LoadBaseAnimatedSpriteImage()
+    {
+        string directorioOriginal = Directory.GetCurrentDirectory() + "\\Assets\\Images\\BaseImages";
+
+        DirectoryInfo directorioInfo = new DirectoryInfo(directorioOriginal);
+
+        FileInfo[] archivosPNG = directorioInfo.GetFiles("*.png");
+
+        foreach (FileInfo archivoPNG in archivosPNG)
+        {
+            if (archivoPNG.Name.Equals("enemyAnimated.png"))
+            {
+                byte[] bytes = File.ReadAllBytes(archivoPNG.FullName);
+                Texture2D loadTexture = new Texture2D(1, 1);
+                loadTexture.LoadImage(bytes);
+
+                Sprite currentSprite = _sprites[0];
+
+
+                float scale = 2.5f;
+
+                GetComponent<SpriteRenderer>().sprite = currentSprite;
+                transform.localScale = new Vector3(scale, scale, 1);
+                Destroy(GetComponent<PolygonCollider2D>());
+                gameObject.AddComponent<PolygonCollider2D>();
+                break;
+            }
         }
     }
 

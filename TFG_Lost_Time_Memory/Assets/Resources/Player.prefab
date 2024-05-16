@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 8222657878937439210}
   - component: {fileID: 1661060787425817939}
   - component: {fileID: 1304183524657891952}
+  - component: {fileID: 4030170740918548055}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -123,6 +124,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bgPoolController: {fileID: 1661060787425817939}
   bulletSpeed: 10
+  animatedSprite: 0
+  _sprites:
+  - {fileID: 1843771634, guid: e550c8d1df0963a44812b0651dee9fb7, type: 3}
 --- !u!114 &1661060787425817939
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -164,3 +168,23 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.26, y: 2.26}
   m_EdgeRadius: 0
+--- !u!95 &4030170740918548055
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8222657878937439212}
+  m_Enabled: 0
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c34617c5c1732a0478b7c45f0ebc11af, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

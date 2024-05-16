@@ -17,6 +17,9 @@ public class PlayerController : MonoBehaviour
     private static float _maxFireDelay = 0.6f;
     private static float _fireDelay = 0.6f;
     private Vector2 _colliderSize;
+    [SerializeField] private bool animatedSprite;
+    [SerializeField] private Sprite[] _sprites;
+    private Animator spriteAnimator;
 
     public static float Speed
     {
@@ -65,7 +68,17 @@ public class PlayerController : MonoBehaviour
         SetDefaultStats();
         BoxCollider2D boxCollider2D = GetComponent<BoxCollider2D>();
         _colliderSize = boxCollider2D.size;
-        CheckPlayerImage();
+        if (!animatedSprite)
+        {
+            CheckPlayerImage();
+            GetComponent<Animator>().enabled = false;
+        }
+        else
+        {
+            LoadBaseAnimatedSpriteImage();
+            GetComponent<Animator>().enabled = true;
+            spriteAnimator = GetComponent<Animator>();
+        }
         _rigidbody2D = GetComponent<Rigidbody2D>();
         _speed = _defaultSpeed;
     }
@@ -94,6 +107,21 @@ public class PlayerController : MonoBehaviour
         }
 
         _rigidbody2D.velocity = new Vector2(x * _speed, y * _speed);
+
+        if (animatedSprite && spriteAnimator != null)
+        {
+            if (x != 0 || y != 0)
+            {
+                spriteAnimator.SetFloat("MoveX",x);
+                spriteAnimator.SetFloat("MoveY",y);
+                spriteAnimator.SetBool("IsWalking",true);
+            }
+            else
+            {
+                spriteAnimator.SetBool("IsWalking",false);
+            }
+
+        }
     }
 
     void Shoot(float xShoot, float yShoot, float xDirection, float yDirection)
@@ -127,6 +155,35 @@ public class PlayerController : MonoBehaviour
                     ? Mathf.Floor(yShoot) * bulletSpeed * auxBulletSpeedY
                     : Mathf.Ceil(yShoot) * bulletSpeed * auxBulletSpeedY
             );
+        }
+    }
+
+    void LoadBaseAnimatedSpriteImage()
+    {
+        string directorioOriginal = Directory.GetCurrentDirectory() + "\\Assets\\Images\\BaseImages";
+        
+        DirectoryInfo directorioInfo = new DirectoryInfo(directorioOriginal);
+
+        FileInfo[] archivosPNG = directorioInfo.GetFiles("*.png");
+
+        foreach (FileInfo archivoPNG in archivosPNG)
+        {
+            if (archivoPNG.Name.Equals("playerAnimated.png"))
+            {
+                byte[] bytes = File.ReadAllBytes(archivoPNG.FullName);
+                Texture2D loadTexture = new Texture2D(1, 1);
+                loadTexture.LoadImage(bytes);
+                
+                Sprite currentSprite = _sprites[0];
+
+
+                float scale = 2.5f;
+
+                GetComponent<SpriteRenderer>().sprite = currentSprite;
+                transform.localScale = new Vector3(scale, scale, 1);
+                GetComponent<BoxCollider2D>().size = new Vector2(0.39f, 0.45f);
+                break;
+            }
         }
     }
 
