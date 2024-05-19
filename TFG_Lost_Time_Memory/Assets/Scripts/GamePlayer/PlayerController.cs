@@ -17,7 +17,6 @@ public class PlayerController : MonoBehaviour
     private static float _maxFireDelay = 0.6f;
     private static float _fireDelay = 0.6f;
     private Vector2 _colliderSize;
-    [SerializeField] private bool animatedSprite;
     [SerializeField] private Sprite[] _sprites;
     private Animator spriteAnimator;
 
@@ -68,7 +67,7 @@ public class PlayerController : MonoBehaviour
         SetDefaultStats();
         BoxCollider2D boxCollider2D = GetComponent<BoxCollider2D>();
         _colliderSize = boxCollider2D.size;
-        if (!animatedSprite)
+        if (PlayerPrefs.GetInt("AnimatedGraphics") == 0)
         {
             CheckPlayerImage();
             GetComponent<Animator>().enabled = false;
@@ -108,7 +107,7 @@ public class PlayerController : MonoBehaviour
 
         _rigidbody2D.velocity = new Vector2(x * _speed, y * _speed);
 
-        if (animatedSprite && spriteAnimator != null)
+        if (PlayerPrefs.GetInt("AnimatedGraphics") == 1 && spriteAnimator != null)
         {
             if (x != 0 || y != 0)
             {

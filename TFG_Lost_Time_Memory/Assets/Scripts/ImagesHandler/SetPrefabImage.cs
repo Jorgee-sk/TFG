@@ -20,6 +20,7 @@ public class SetPrefabImage : MonoBehaviour
     public Button gameMenuBgButton;
     public Button gameButtonBtn;
     public Button inGameMenuBgButton;
+    public Toggle animatedGraphics;
 
     // Start is called before the first frame update
     void OnEnable()
@@ -92,6 +93,11 @@ public class SetPrefabImage : MonoBehaviour
         if (inGameMenuBgButton != null)
         {
             inGameMenuBgButton.onClick.AddListener(() => ChangeInGameMenuBackground());
+        }
+
+        if (animatedGraphics != null)
+        {
+            PlayerPrefs.SetInt("AnimatedGraphics", animatedGraphics.isOn ? 1 : 0);
         }
     }
 
@@ -213,6 +219,11 @@ public class SetPrefabImage : MonoBehaviour
         }
 
         EventSystem.current.SetSelectedGameObject(null);
+    }
+
+    public void AnimatedGraphicsToggle(bool value)
+    {
+        PlayerPrefs.SetInt("AnimatedGraphics", value ? 1 : 0);
     }
 
     void RestoreDefaultBgAndWallImages()

@@ -26,7 +26,7 @@ public class ChasePlayer : NodeAction
         context.agent.SetDestination(context.playerGameObjectCtx.transform.position);
         float distance = Vector2.Distance(context.gameObjectContext.transform.position, context.agent.destination);
 
-        if (context.enemyContext.AnimatedSprite && animator != null)
+        if (PlayerPrefs.GetInt("AnimatedGraphics") == 1 && animator != null)
         {
             if (distance != 0)
             {

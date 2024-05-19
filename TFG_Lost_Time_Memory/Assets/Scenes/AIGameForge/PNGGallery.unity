@@ -3428,7 +3428,19 @@ MonoBehaviour:
   m_Group: {fileID: 0}
   onValueChanged:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1162053501}
+        m_TargetAssemblyTypeName: SetPrefabImage, Assembly-CSharp
+        m_MethodName: AnimatedGraphicsToggle
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_IsOn: 0
 --- !u!1 &1099327948
 GameObject:
@@ -3882,6 +3894,7 @@ MonoBehaviour:
   gameMenuBgButton: {fileID: 1906207418}
   gameButtonBtn: {fileID: 683728319}
   inGameMenuBgButton: {fileID: 1734733263}
+  animatedGraphics: {fileID: 1093802312}
 --- !u!1 &1185038178
 GameObject:
   m_ObjectHideFlags: 0

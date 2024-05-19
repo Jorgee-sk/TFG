@@ -13,7 +13,6 @@ public class EnemyController : MonoBehaviour
     [SerializeField] private float rotationSpeed;
     [SerializeField] private float rotationModifier;
     [SerializeField] private bool activeRotation;
-    [SerializeField] private bool animatedSprite;
     [SerializeField] private Sprite[] _sprites;
 
     private Quaternion _lookRotation;
@@ -46,17 +45,11 @@ public class EnemyController : MonoBehaviour
         set => detectionRange = value;
     }
 
-    public bool AnimatedSprite
-    {
-        get => animatedSprite;
-        set => animatedSprite = value;
-    }
-
 
     // Start is called before the first frame update
     void Start()
     {
-        if (!animatedSprite)
+        if (PlayerPrefs.GetInt("AnimatedGraphics") == 0)
         {
             CheckPlayerImage();
             GetComponent<Animator>().enabled = false;
