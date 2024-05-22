@@ -24,7 +24,14 @@ To use this tool you need to install Python on your computer and a number of lib
 <li>numpy  1.26.4</li>
 </ul>
 
-<p></p>
+<p>
+The following line needs to be added to your Packages/manifest.json file in your Unity Project under the dependencies section to add a custom package 
+dependency:
+</p>
+
+<pre>
+"com.h8man.2d.navmeshplus": "https://github.com/h8man/NavMeshPlus.git#master"
+</pre>
 
 <p>In this tool we find an initial menu that provides us with different functionalities:</p>
 
