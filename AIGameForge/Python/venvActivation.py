@@ -1,3 +1,4 @@
+import os
 import sys
 
 def ejecutar_script(script_path, image_path):
@@ -5,7 +6,13 @@ def ejecutar_script(script_path, image_path):
 
 try:
     script_path = sys.argv[1]
-    image_path = 'E:\\4 Carrera\\TFG\\LOST_TIME_MEMORY\\TFG_Lost_Time_Memory\\TFG_Lost_Time_Memory\\Assets\\Images\\InGameImages\\' + sys.argv[2]
+    # Obtener la ruta del directorio donde se encuentra este script
+    current_script_path = os.path.dirname(os.path.abspath(__file__))
+
+    # Construir la ruta relativa a los directorios de imágenes
+    relative_path_to_images = os.path.join(current_script_path, '..', 'Assets', 'Images', 'InGameImages\\')
+    #Normalizamos la ruta
+    image_path = os.path.normpath(relative_path_to_images + sys.argv[2])
 
     ejecutar_script(script_path, image_path)
 

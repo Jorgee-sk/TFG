@@ -1,14 +1,28 @@
+import os
 import cv2
 import sys
 import numpy as np
 
-image_path = 'E:\\4 Carrera\\TFG\\LOST_TIME_MEMORY\\TFG_Lost_Time_Memory\\TFG_Lost_Time_Memory\\Assets\\Images\\InGameImages\\'
 mask_path = 'Masks\\'
-image_result_path = 'E:\\4 Carrera\\TFG\\LOST_TIME_MEMORY\\TFG_Lost_Time_Memory\\TFG_Lost_Time_Memory\\Assets\\Images\\ResultImages\\'
+
+# Obtener la ruta del directorio donde se encuentra este script
+current_script_path = os.path.dirname(os.path.abspath(__file__))
+
+# Construir la ruta relativa a los directorios de imágenes
+relative_path_to_images = os.path.join(current_script_path, '..', 'Assets', 'Images', 'InGameImages\\')
+relative_path_to_result = os.path.join(current_script_path, '..', 'Assets', 'Images', 'ResultImages\\')
+
+# Normalizar la ruta
+target_image_path = os.path.normpath(relative_path_to_images+sys.argv[2])
+target_result_path = os.path.normpath(relative_path_to_result+'result_'+sys.argv[2])
 
 # Cargar la imagen original y la máscara binaria
-imagen_original = cv2.imread(image_path+sys.argv[2])  # Reemplaza con la ruta de tu imagen original
+imagen_original = cv2.imread(target_image_path)  # Reemplaza con la ruta de tu imagen original
 mascara_binaria = cv2.imread(mask_path+sys.argv[1], cv2.IMREAD_GRAYSCALE)  # Reemplaza con la ruta de tu máscara binaria
+
+print(f'Ruta al directorio de imágenes: {target_image_path}')
+print(f'Ruta al directorio de masks: {mask_path+sys.argv[1]}')
+print(f'Ruta al directorio de resultados: {target_result_path}')
 
 # Asegurar que las dimensiones coincidan
 if imagen_original.shape[:2] != mascara_binaria.shape:
@@ -23,4 +37,4 @@ imagen_original_con_alfa = cv2.cvtColor(imagen_original, cv2.COLOR_BGR2BGRA)
 imagen_original_con_alfa[:, :, 3] = mascara_binaria
 
 ## Guardar la imagen resultante
-cv2.imwrite(image_result_path+'result_'+sys.argv[2], imagen_original_con_alfa)
+cv2.imwrite(target_result_path, imagen_original_con_alfa)
