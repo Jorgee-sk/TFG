@@ -69,3 +69,15 @@ Finally, we find the demo which demonstrates the uses of this tool.
 <p>
 Regardless of the tool being used, a visual interface is available in runtime, facilitating the creation of behavior trees for integration into our video game. Users can craft new behaviors using the base nodes provided or recycle existing ones.
 </p>
+
+### Tool guide
+
+![Login](Resources/PantallaLogin.JPG)
+
+![Login](Resources/MenuTool.JPG)
+
+![Login](Resources/GenerateDallEImage.JPG)
+
+![Login](Resources/GalleryImagesGenerated.JPG)
+
+![Login](Resources/PNGGallery.JPG)
