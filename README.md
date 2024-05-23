@@ -13,6 +13,8 @@ to the creation of elements that use AI within the video game itself such as ene
 We will also need an OpenAI account that allows us to make requests to its api and a generated token to be able to log in to the tool.
 </p>
 
+[OpenAIApi](https://platform.openai.com/)
+
 <p>
 To use this tool you need to install Python on your computer and a number of libraries mentioned below:
 </p>
@@ -24,8 +26,22 @@ To use this tool you need to install Python on your computer and a number of lib
 <li>numpy  1.26.4</li>
 </ul>
 
+<pre>
+pip install opencv-python==4.8.1.78
+pip install tensorflow==2.14.0
+pip install numpy==1.26.4
+</pre>
+
 <p>
-The following line needs to be added to your Packages/manifest.json file in your Unity Project under the dependencies section to add a custom package 
+After installing python dependecies, we will need to clone this project from the following link:
+</p>
+
+<pre>
+https://github.com/Jorgee-sk/TFG.git
+</pre>
+
+<p>
+With the Unity project installed, the following line needs to be added to your Packages/manifest.json file in your Unity Project under the dependencies section to add a custom package 
 dependency:
 </p>
 
