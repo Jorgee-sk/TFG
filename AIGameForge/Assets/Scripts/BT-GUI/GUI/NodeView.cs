@@ -1,9 +1,11 @@
+#if (UNITY_EDITOR) 
 using System;
 using UnityEditor;
 using UnityEngine;
 using UnityEditor.Experimental.GraphView;
 using UnityEditor.UIElements;
 using UnityEngine.UIElements;
+
 
 public class NodeView : UnityEditor.Experimental.GraphView.Node
 {
@@ -138,3 +140,4 @@ public class NodeView : UnityEditor.Experimental.GraphView.Node
         }
     }
 }
+#endif

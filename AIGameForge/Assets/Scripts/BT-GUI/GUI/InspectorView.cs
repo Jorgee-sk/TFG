@@ -1,6 +1,7 @@
 using UnityEditor;
 using UnityEngine.UIElements;
 
+#if (UNITY_EDITOR) 
 public class InspectorView : VisualElement
 {
     public new class UxmlFactory : UxmlFactory<InspectorView, UxmlTraits>
@@ -22,3 +23,4 @@ public class InspectorView : VisualElement
         Add(container);
     }
 }
+#endif

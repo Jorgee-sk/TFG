@@ -1,8 +1,10 @@
+#if (UNITY_EDITOR) 
 using System;
 using UnityEditor;
 using UnityEditor.Callbacks;
 using UnityEngine;
 using UnityEngine.UIElements;
+
 
 public class BehaviourTreeEditor : EditorWindow
 {
@@ -120,3 +122,4 @@ public class BehaviourTreeEditor : EditorWindow
         _behaviourTreeView?.UpdateNodeState();
     }
 }
+#endif

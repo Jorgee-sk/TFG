@@ -2056,6 +2056,7 @@ MonoBehaviour:
   gameMenuBgButton: {fileID: 996811161}
   gameButtonBtn: {fileID: 1433574944}
   inGameMenuBgButton: {fileID: 1704538318}
+  animatedGraphics: {fileID: 0}
 --- !u!1 &1234789903
 GameObject:
   m_ObjectHideFlags: 0

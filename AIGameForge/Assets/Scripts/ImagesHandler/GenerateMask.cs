@@ -27,25 +27,27 @@ public class GenerateMask : MonoBehaviour
             File.Delete(Directory.GetCurrentDirectory() + "\\Python\\Masks\\mask" + _currentImageName);
         }
         
-        
         try
         {
             /* Comando que deseamos ejecutar en el cmd -> será el nombre del script de python ya que con la /k
              accedemos al directorio */
             string command = "cd python && venvActivation.py generateBinaryMask.py " + _currentImageName;
-
+            
             // Configurar el proceso de inicio
-            ProcessStartInfo startInfo = new ProcessStartInfo("cmd.exe", $"/k {command}");
+            ProcessStartInfo startInfo = new ProcessStartInfo("cmd.exe", $"/c {command}");
             startInfo.UseShellExecute = false;
             startInfo.RedirectStandardOutput = true;
             startInfo.RedirectStandardError = true;
+            startInfo.CreateNoWindow = true; // Ocultar la ventana del cmd
+            startInfo.WindowStyle = ProcessWindowStyle.Hidden; // Ejecutar en segundo plano
 
             // Iniciar el proceso
             using (Process process = new Process())
             {
+               
                 process.StartInfo = startInfo;
                 process.Start();
-
+                
                 // Leer la salida estándar y de error del proceso
                 string output = process.StandardOutput.ReadToEnd();
                 string error = process.StandardError.ReadToEnd();
@@ -54,16 +56,16 @@ public class GenerateMask : MonoBehaviour
                 process.WaitForExit();
 
                 // Imprimir la salida en Unity
-                Debug.Log("Salida estándar: " + output);
+                //Debug.Log("Salida estándar: " + output);
 
                 // Imprimir errores en Unity (si los hay) este codigo se va a quitar jeje
-                if (!string.IsNullOrEmpty(error))
-                {
-                    Debug.LogError("Error durante la ejecución del comando: " + error);
-                }
+                //if (!string.IsNullOrEmpty(error))
+                //{
+                //    Debug.LogError("Error durante la ejecución del comando: " + error);
+                //}
 
                 // Imprimir el código de salida en Unity
-                Debug.Log($"Código de salida: {process.ExitCode}");
+                //Debug.Log($"Código de salida: {process.ExitCode}");
             }
         }
         catch (Exception ex)
@@ -83,10 +85,12 @@ public class GenerateMask : MonoBehaviour
             string command = "cd python && applyMask.py " + _currentMaskImageName + " " + _currentImageName;
 
             // Configurar el proceso de inicio
-            ProcessStartInfo startInfo = new ProcessStartInfo("cmd.exe", $"/k {command}");
+            ProcessStartInfo startInfo = new ProcessStartInfo("cmd.exe", $"/c {command}");
             startInfo.UseShellExecute = false;
             startInfo.RedirectStandardOutput = true;
             startInfo.RedirectStandardError = true;
+            startInfo.CreateNoWindow = true; // Ocultar la ventana del cmd
+            startInfo.WindowStyle = ProcessWindowStyle.Hidden; // Ejecutar en segundo plano
 
             // Iniciar el proceso
             using (Process process = new Process())
@@ -100,18 +104,17 @@ public class GenerateMask : MonoBehaviour
 
                 // Esperar a que el proceso termine
                 process.WaitForExit();
-
                 // Imprimir la salida en Unity
-                Debug.Log("Salida estándar: " + output);
+                //Debug.Log("Salida estándar: " + output);
 
                 // Imprimir errores en Unity (si los hay) este codigo se va a quitar jeje
-                if (!string.IsNullOrEmpty(error))
-                {
-                    Debug.LogError("Error durante la ejecución del comando: " + error);
-                }
+                //if (!string.IsNullOrEmpty(error))
+                //{
+                //    Debug.LogError("Error durante la ejecución del comando: " + error);
+                //}
 
                 // Imprimir el código de salida en Unity
-                Debug.Log($"Código de salida: {process.ExitCode}");
+                //Debug.Log($"Código de salida: {process.ExitCode}");
             }
         }
         catch (Exception ex)

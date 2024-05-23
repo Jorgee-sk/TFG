@@ -58,7 +58,7 @@ public class AuthOpenAI : MonoBehaviour
             File.WriteAllText(_path, _jsonString);
         }
 
-        SceneManager.LoadScene(4);
+        SceneManager.LoadScene(6);
     }
 
     void Update()

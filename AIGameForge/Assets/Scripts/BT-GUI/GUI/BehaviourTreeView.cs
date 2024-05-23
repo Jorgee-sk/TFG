@@ -1,3 +1,4 @@
+#if (UNITY_EDITOR)
 using System;
 using System.Linq;
 using System.Collections.Generic;
@@ -167,3 +168,4 @@ public class BehaviourTreeView : GraphView
         });
     }
 }
+#endif

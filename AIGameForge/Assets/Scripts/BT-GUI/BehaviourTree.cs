@@ -20,6 +20,7 @@ public class BehaviourTree : ScriptableObject
         return statusBehaviorTree;
     }
 
+#if (UNITY_EDITOR) 
     public Node CreateNode(Type type)
     {
         Node node = CreateInstance(type) as Node;
@@ -43,7 +44,7 @@ public class BehaviourTree : ScriptableObject
         AssetDatabase.RemoveObjectFromAsset(node);
         AssetDatabase.SaveAssets();
     }
-
+#endif
     public void AddChildNode(Node parent, Node child)
     {
         NodeDecorator nodeDecorator = parent as NodeDecorator;
