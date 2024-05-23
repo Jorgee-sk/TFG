@@ -103,13 +103,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 10
   detectionRange: 100
-  attackRange: 1
+  attackRange: 0.75
   attackDamage: 1
   target: {fileID: 8222657878937439214, guid: 1c0c44e070a106949afaee3d4de64ff8, type: 3}
   rotationSpeed: 5
   rotationModifier: 90
   activeRotation: 0
-  animatedSprite: 0
   _sprites:
   - {fileID: -319788708, guid: e86e11571bd1bea4aab7674d29505594, type: 3}
 --- !u!114 &4241175761118108738
@@ -222,7 +221,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.5
-  m_Speed: 8
+  m_Speed: 7
   m_Acceleration: 10
   avoidancePriority: 50
   m_AngularSpeed: 120

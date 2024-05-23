@@ -7,7 +7,7 @@ public class EnemyController : MonoBehaviour
 {
     [SerializeField] private int health;
     [SerializeField] private int detectionRange;
-    [SerializeField] private int attackRange;
+    [SerializeField] private float attackRange;
     [SerializeField] private int attackDamage;
     [SerializeField] private Transform target;
     [SerializeField] private float rotationSpeed;
@@ -33,7 +33,7 @@ public class EnemyController : MonoBehaviour
         set => health = value;
     }
 
-    public int AttackRange
+    public float AttackRange
     {
         get => attackRange;
         set => attackRange = value;

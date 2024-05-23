@@ -8,7 +8,7 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D _rigidbody2D;
     private float _lastFire;
     public BgPoolController bgPoolController;
-    private static float _defaultSpeed = 7f;
+    private static float _defaultSpeed = 6f;
     private static int _maxHealth = 10;
     private static int _health = 10;
     private static int _score = 0;
@@ -86,7 +86,7 @@ public class PlayerController : MonoBehaviour
     {
         _score = 0;
         _health = 10;
-        _defaultSpeed = 7f;
+        _defaultSpeed = 6f;
         _fireDelay = 0.6f;
         Time.timeScale = 1f;
     }

@@ -74,9 +74,9 @@ public class PowerUpManager : MonoBehaviour
         
         if (_timer >= spawnInterval)
         {
-            _prefabToSpawn = prefabToSpawnList[Random.Range(1, 3)];
+            _prefabToSpawn = prefabToSpawnList[Random.Range(0, 3)];
 
-            int range = Random.Range(1, _childPositions.Count);
+            int range = Random.Range(0, _childPositions.Count);
             Vector3 instancePosition = _childPositions[range];
             _childPositions.RemoveAt(range);
             
