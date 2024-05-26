@@ -108,3 +108,40 @@ This is the gallery that save the resulting images that have been subjected to t
 <p>
 A visual interface is also available at runtime that facilitates the creation of behavior trees to integrate them into our game. Users can create new behaviors using the provided base nodes or recycle existing ones.
 </p>
+
+<p>
+Initially we can right click on our project folder, then select the “Create” option and the Behaviour Tree asset will appear in order to create the instance of this object.
+</p>
+
+![CreateBT](Resources/HowToCreate.JPG)
+
+<p>
+Once the object is created, double clicking on it will open a visual menu or editor where we will initially see the root node of our BT.
+</p>
+
+![CreateBT](Resources/WhenOpenAsset.JPG)
+
+<p>
+Again by right clicking on it, we will see the different nodes that we can add to our tree.
+</p>
+
+![CreateBT](Resources/RightClick.JPG)
+
+<p>
+Once the nodes have been added, they must be connected to each other to create the tree structure.
+</p>
+
+![CreateBT](Resources/ConnectNodes.JPG)
+
+<p>
+These are the nodes that allow us to have customized behaviors to our tree.
+</p>
+
+![CreateBT](Resources/DefaultedBehaviour.JPG)
+
+<p>
+To use this code structure created in the BT, a script called Behaviour Tree Runner is used. The asset created and the agents participating in the behavior are added to it.
+</p>
+
+![CreateBT](Resources/HowToUseOnGO.JPG)
+
