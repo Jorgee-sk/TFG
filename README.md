@@ -16,10 +16,11 @@ We will also need an OpenAI account that allows us to make requests to its api a
 [OpenAIApi](https://platform.openai.com/)
 
 <p>
-To use this tool you need to install Python on your computer and a number of libraries mentioned below:
+To use this tool you need to install Unity, Python and a number of libraries mentioned below:
 </p>
 
 <ul>
+<li>Unity 2021.3.15f1</li>
 <li>Python  3.9.11</li>
 <li>opencv-python  4.8.1.78</li>
 <li>tensorflow  2.14.0</li>
@@ -31,6 +32,8 @@ pip install opencv-python==4.8.1.78
 pip install tensorflow==2.14.0
 pip install numpy==1.26.4
 </pre>
+
+> **_NOTE:_** All these versions are VERY important because of the compatibility of the packages.
 
 <p>
 After installing python dependecies, we will need to clone this project from the following link:
