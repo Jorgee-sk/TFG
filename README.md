@@ -36,7 +36,7 @@ pip install numpy==1.26.4
 > **_NOTE:_** All these versions are VERY important because of the compatibility of the packages.
 
 <p>
-After installing python dependecies, we will need to clone this project from the following link:
+After installing dependecies, we will need to clone this project from the following link:
 </p>
 
 <pre>
