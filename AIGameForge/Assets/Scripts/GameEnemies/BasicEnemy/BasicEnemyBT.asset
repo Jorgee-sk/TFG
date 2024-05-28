@@ -238,7 +238,7 @@ MonoBehaviour:
   status: 0
   started: 0
   guide: 67a557d4cc76c114680431241ff04468
-  position: {x: -319.51498, y: 866}
+  position: {x: -490, y: 866}
   context: {fileID: 0}
   description: "Aqu\xED iria el nodo que comprueba si el player est\xE1 o no en rango"
 --- !u!114 &8661380270881705728

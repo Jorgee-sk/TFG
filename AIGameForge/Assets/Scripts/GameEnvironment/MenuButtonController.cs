@@ -1,4 +1,5 @@
 using System.IO;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -6,6 +7,7 @@ public class MenuButtonController : MonoBehaviour
 {
     [SerializeField] private string keyName;
     [SerializeField] private string defaultPicName;
+    [SerializeField] private bool sceneMenu;
     
     // Start is called before the first frame update
     void Start()
@@ -92,6 +94,19 @@ public class MenuButtonController : MonoBehaviour
                         mapGameObject.GetComponent<Image>().sprite = currentSprite;
                         mapGameObject.transform.localScale = new Vector3(scale, scale, 1);
 
+
+                        if (mapGameObject.GetComponentInChildren<TMP_Text>() != null)
+                        {
+                            
+                            mapGameObject.GetComponentInChildren<TMP_Text>().fontSize = 30;
+                        }
+
+                        if (sceneMenu)
+                        {
+                            mapGameObject.transform.localScale = new Vector3(1, 1.5f, 1);
+                        }
+                        
+                        
                         break;
                     }
                     else

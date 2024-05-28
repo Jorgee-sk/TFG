@@ -262,6 +262,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyName: buttonBackground
   defaultPicName: BotonLargoPiedra.png
+  sceneMenu: 1
 --- !u!114 &414416725
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -399,6 +400,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyName: buttonBackground
   defaultPicName: BotonLargoPiedra.png
+  sceneMenu: 1
 --- !u!114 &429025950
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -900,6 +902,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyName: menuBackground
   defaultPicName: cave.png
+  sceneMenu: 0
 --- !u!114 &1484869151
 MonoBehaviour:
   m_ObjectHideFlags: 0

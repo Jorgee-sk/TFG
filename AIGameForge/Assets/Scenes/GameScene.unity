@@ -971,6 +971,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyName: gameMenuBackground
   defaultPicName: BotonLargoPiedra.png
+  sceneMenu: 1
 --- !u!1001 &189310140
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1386,6 +1387,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyName: buttonBackground
   defaultPicName: BotonLargoPiedra.png
+  sceneMenu: 0
 --- !u!1 &271110796
 GameObject:
   m_ObjectHideFlags: 0
@@ -2545,8 +2547,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 30
+  m_fontSizeBase: 30
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -4608,6 +4610,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyName: buttonBackground
   defaultPicName: BotonLargoPiedra.png
+  sceneMenu: 0
 --- !u!1 &713747124
 GameObject:
   m_ObjectHideFlags: 0
@@ -5834,7 +5837,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bgPoolController: {fileID: 7282877199881138151}
   bulletSpeed: 10
-  animatedSprite: 0
   _sprites: []
 --- !u!1 &788533215
 GameObject:
@@ -6838,6 +6840,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyName: buttonBackground
   defaultPicName: BotonLargoPiedra.png
+  sceneMenu: 0
 --- !u!1001 &864784964
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8018,6 +8021,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyName: gameMenuBackground
   defaultPicName: BotonLargoPiedra.png
+  sceneMenu: 1
 --- !u!1 &993386917
 GameObject:
   m_ObjectHideFlags: 0
@@ -9039,7 +9043,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -165, y: 0}
+  m_AnchoredPosition: {x: -129.3, y: 0}
   m_SizeDelta: {x: 240, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1073651470
@@ -9138,6 +9142,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyName: buttonBackground
   defaultPicName: BotonLargoPiedra.png
+  sceneMenu: 0
 --- !u!1001 &1085387036
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9649,7 +9654,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -490, y: 0}
+  m_AnchoredPosition: {x: -438.3, y: 0}
   m_SizeDelta: {x: 240, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1175277862
@@ -9748,6 +9753,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyName: buttonBackground
   defaultPicName: BotonLargoPiedra.png
+  sceneMenu: 0
 --- !u!1 &1197642107
 GameObject:
   m_ObjectHideFlags: 0
@@ -11490,6 +11496,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyName: buttonBackground
   defaultPicName: BotonLargoPiedra.png
+  sceneMenu: 0
 --- !u!1 &1496487289
 GameObject:
   m_ObjectHideFlags: 0
@@ -13050,6 +13057,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyName: buttonBackground
   defaultPicName: BotonLargoPiedra.png
+  sceneMenu: 0
 --- !u!1001 &1649373107
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15190,7 +15198,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -165, y: 0}
+  m_AnchoredPosition: {x: -129.3, y: 0}
   m_SizeDelta: {x: 240, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1925220641
@@ -15289,6 +15297,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keyName: buttonBackground
   defaultPicName: BotonLargoPiedra.png
+  sceneMenu: 0
 --- !u!1001 &1933016088
 PrefabInstance:
   m_ObjectHideFlags: 0

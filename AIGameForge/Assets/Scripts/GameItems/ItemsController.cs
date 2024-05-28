@@ -124,8 +124,8 @@ public class ItemsController : MonoBehaviour
                             float loadTextureWidth = loadTexture.width / textureSizeXY;
                             float loadTextureHeight = loadTexture.height / textureSizeXY;
 
-                            float scaleX = 1 / (loadTextureWidth * 2);
-                            float scaleY = 1 / (loadTextureHeight * 2);
+                            float scaleX = 1 / (loadTextureWidth * 4);
+                            float scaleY = 1 / (loadTextureHeight * 4);
 
                             transform.localScale = new Vector3(scaleX, scaleY, 1);
                         }
