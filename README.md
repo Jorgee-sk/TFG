@@ -21,11 +21,17 @@ To use this tool you need to install Unity, Python and a number of libraries men
 
 <ul>
 <li>Unity 2021.3.15f1</li>
-<li>Python  3.9.11</li>
+<li>Python  3.9.11</li>  
 <li>opencv-python  4.8.1.78</li>
 <li>tensorflow  2.14.0</li>
 <li>numpy  1.26.4</li>
 </ul>
+
+<p>
+To install pip, the package manager for Python packages, make sure to mark the pip checkbox 
+</p>
+
+![Pip install](Resources/pip.png)
 
 <pre>
 pip install opencv-python==4.8.1.78
