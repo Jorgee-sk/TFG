@@ -188,7 +188,8 @@ public class ListImages : MonoBehaviour
         {
             if (pngGallery)
             {
-                string currentMaskImageName = GetCurrentMaskImageName().Substring("result_".Length);
+                //To delete the mask...
+                string currentMaskImageName = "mask" + GetCurrentMaskImageName().Substring("maskresult_".Length);
                 File.Delete(Directory.GetCurrentDirectory() + "\\Python\\Masks\\" + currentMaskImageName);
             }
 
